@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - YenTV.wedding</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="logo">💍 YenTV<span class="logo-domain">.wedding</span></a>
+    <div class="nav-links">
+      <a href="templates.html">Mẫu thiệp</a>
+      <a href="create.html" class="btn-primary">+ Tạo thiệp mới</a>
+      <button class="btn-logout" onclick="logout()">Đăng xuất</button>
+    </div>
+  </nav>
+
+  <div class="dashboard-layout">
+
+    <!-- Sidebar -->
+    <aside class="dash-sidebar">
+      <div class="dash-avatar" id="dashAvatar">👤</div>
+      <div class="dash-user-info">
+        <h3 id="dashName">Đang tải...</h3>
+        <p id="dashEmail"></p>
+      </div>
+      <nav class="dash-nav">
+        <a href="#" class="dash-nav-item active" onclick="showTab('cards', this)">💌 Thiệp của tôi</a>
+        <a href="#" class="dash-nav-item" onclick="showTab('profile', this)">👤 Thông tin cá nhân</a>
+        <a href="#" class="dash-nav-item" onclick="showTab('stats', this)">📊 Thống kê</a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="dash-main">
+
+      <!-- Tab: My Cards -->
+      <div id="tab-cards" class="dash-tab">
+        <div class="dash-header">
+          <h2>💌 Thiệp của tôi</h2>
+          <a href="create.html" class="btn-primary">+ Tạo thiệp mới</a>
+        </div>
+        <div id="myCardsGrid" class="my-cards-grid"></div>
+        <div id="noCards" style="display:none" class="empty-state">
+          <p>🌸</p>
+          <h3>Bạn chưa có thiệp nào</h3>
+          <p>Hãy tạo tấm thiệp cưới đầu tiên của bạn!</p>
+          <a href="create.html" class="btn-primary">Tạo thiệp ngay</a>
+        </div>
+      </div>
+
+      <!-- Tab: Profile -->
+      <div id="tab-profile" class="dash-tab" style="display:none">
+        <div class="dash-header"><h2>👤 Thông tin cá nhân</h2></div>
+        <div class="profile-form">
+          <div class="form-group">
+            <label>Họ và tên</label>
+            <input type="text" id="profileName" />
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" id="profileEmail" disabled />
+          </div>
+          <div class="form-group">
+            <label>Số điện thoại</label>
+            <input type="tel" id="profilePhone" />
+          </div>
+          <div class="form-group">
+            <label>Đổi mật khẩu mới (để trống nếu không đổi)</label>
+            <input type="password" id="profileNewPwd" placeholder="Mật khẩu mới" />
+          </div>
+          <button class="btn-primary" onclick="saveProfile()">Lưu thay đổi</button>
+          <div id="profileMsg" style="margin-top:.8rem;font-size:.9rem;color:#2e7d32"></div>
+        </div>
+      </div>
+
+      <!-- Tab: Stats -->
+      <div id="tab-stats" class="dash-tab" style="display:none">
+        <div class="dash-header"><h2>📊 Thống kê</h2></div>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-icon">💌</span>
+            <div class="stat-num" id="statCards">0</div>
+            <div class="stat-label">Thiệp đã tạo</div>
+          </div>
+          <div class="stat-card">
+            <span class="stat-icon">👁</span>
+            <div class="stat-num" id="statViews">0</div>
+            <div class="stat-label">Lượt xem</div>
+          </div>
+          <div class="stat-card">
+            <span class="stat-icon">📅</span>
+            <div class="stat-num" id="statDays">0</div>
+            <div class="stat-label">Ngày đã tham gia</div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="auth.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>

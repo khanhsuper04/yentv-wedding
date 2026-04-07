@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YenTV – Thiệp cưới online đẹp, miễn phí</title>
+  <meta name="description" content="Tạo thiệp cưới online đẹp, miễn phí. Hàng chục mẫu thiệp tinh tế, chia sẻ qua Zalo, Facebook chỉ trong vài phút." />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="logo">
+    <span class="logo-ring">💍</span>YenTV<span class="logo-domain">.wedding</span>
+  </a>
+  <div class="nav-center">
+    <a href="templates.html">Mẫu thiệp</a>
+    <a href="#pricing">Bảng giá</a>
+    <a href="#faq">Hỏi đáp</a>
+  </div>
+  <div class="nav-right">
+    <div id="navGuest">
+      <a href="login.html" class="nav-login">Đăng nhập</a>
+      <a href="register.html" class="btn-primary">Đăng ký miễn phí</a>
+    </div>
+    <div id="navUser" style="display:none">
+      <a href="dashboard.html" class="nav-login">👤 <span id="navUsername"></span></a>
+      <a href="create.html" class="btn-primary">+ Tạo thiệp</a>
+      <button class="btn-logout" onclick="logout()">Đăng xuất</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-orb orb1"></div>
+  <div class="hero-bg-orb orb2"></div>
+  <div class="hero-bg-orb orb3"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Thiệp cưới online miễn phí
+      </div>
+      <h1>
+        Kể câu chuyện<br/>tình yêu của bạn
+        <span class="hero-script">Make your love story</span>
+      </h1>
+      <p class="hero-desc">
+        YenTV.wedding giúp bạn tạo thiệp cưới điện tử đẹp, cảm xúc chỉ trong vài phút.
+        Không cần kỹ năng thiết kế – chỉ cần tình yêu.
+      </p>
+      <div class="hero-actions">
+        <a href="register.html" class="btn-primary btn-xl">Bắt đầu miễn phí 💌</a>
+        <a href="templates.html" class="btn-ghost">Xem mẫu thiệp →</a>
+      </div>
+      <p class="hero-note">✓ Miễn phí &nbsp;·&nbsp; ✓ Không cần thẻ tín dụng &nbsp;·&nbsp; ✓ Chia sẻ ngay lập tức</p>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">10,000+</div>
+          <div class="hero-stat-label">Thiệp đã tạo</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">50+</div>
+          <div class="hero-stat-label">Mẫu thiết kế</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">4.9★</div>
+          <div class="hero-stat-label">Đánh giá</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card-stack">
+        <div class="hero-card-bg card-back"></div>
+        <div class="hero-card-bg card-mid"></div>
+        <div class="hero-card-main">
+          <div class="hc-ornament">✦ ✦ ✦</div>
+          <p class="hc-invite">Trân trọng kính mời</p>
+          <h2 class="hc-names">Minh Anh & Bảo Châu</h2>
+          <div class="hc-divider">— ♥ —</div>
+          <div class="hc-info">
+            📅 Thứ Bảy, 15/06/2025<br/>
+            🕕 18:00 – Tiệc tối<br/>
+            📍 Trung tâm Hội nghị Quốc gia
+          </div>
+          <div class="hc-flowers">🌸 🌺 🌸</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section how-section">
+  <div class="section-inner">
+    <div class="section-head center">
+      <span class="section-label">Cách thức hoạt động</span>
+      <h2 class="section-title">Tạo thiệp cưới chỉ trong 3 bước</h2>
+      <p class="section-sub">Đơn giản, nhanh chóng và hoàn toàn miễn phí.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-icon">🎨</div>
+        <h3>Chọn mẫu thiệp</h3>
+        <p>Duyệt qua hàng chục mẫu thiệp đẹp từ cổ điển đến hiện đại. Chọn mẫu phù hợp với phong cách của bạn.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-icon">✏️</div>
+        <h3>Điền thông tin</h3>
+        <p>Nhập tên cặp đôi, ngày cưới, địa điểm và lời nhắn. Xem trước thiệp realtime ngay khi bạn gõ.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-icon">🚀</div>
+        <h3>Chia sẻ ngay</h3>
+        <p>Nhận link thiệp duy nhất. Gửi qua Zalo, Facebook, Messenger đến tất cả khách mời trong vài giây.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEMPLATES -->
+<section class="section templates-section">
+  <div class="section-inner">
+    <div class="section-head" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem">
+      <div>
+        <span class="section-label">Mẫu thiết kế</span>
+        <h2 class="section-title">Mẫu thiệp phổ biến nhất</h2>
+      </div>
+      <a href="templates.html" class="btn-ghost">Xem tất cả →</a>
+    </div>
+    <div class="templates-grid" id="templatesGrid"></div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section features-section">
+  <div class="section-inner">
+    <div class="section-head center">
+      <span class="section-label">Tính năng</span>
+      <h2 class="section-title">Mọi thứ bạn cần cho ngày trọng đại</h2>
+      <p class="section-sub">YenTV.wedding được xây dựng để giúp các cặp đôi tạo nên kỷ niệm đáng nhớ.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon-wrap">✨</div>
+        <h3>Kho mẫu đa dạng & tinh tế</h3>
+        <p>Hàng chục mẫu thiệp được thiết kế chỉn chu, từ truyền thống trang nhã đến hiện đại cinematic.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon-wrap">🎨</div>
+        <h3>Cá nhân hoá không giới hạn</h3>
+        <p>Tuỳ chỉnh màu sắc, phông chữ, nội dung để tạo nên tấm thiệp mang đậm dấu ấn riêng của bạn.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon-wrap">🚀</div>
+        <h3>Chia sẻ siêu nhanh</h3>
+        <p>Gửi thiệp qua Zalo, Facebook, Messenger chỉ trong vài giây. Cá nhân hoá tên từng khách mời.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon-wrap">🎵</div>
+        <h3>Nhạc nền lãng mạn</h3>
+        <p>Thêm nhạc nền để tạo không khí lãng mạn. Chọn từ thư viện hoặc tải lên bản nhạc yêu thích.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon-wrap">💬</div>
+        <h3>Tương tác với khách mời</h3>
+        <p>Khách mời có thể gửi lời chúc và bình luận trực tiếp trên thiệp. Tạo không gian giao lưu ấm áp.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon-wrap">📊</div>
+        <h3>Thống kê chi tiết</h3>
+        <p>Theo dõi lượt xem, lượt yêu thích và hoạt động của khách mời. Biết ai đã xem thiệp của bạn.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section pricing-section" id="pricing">
+  <div class="section-inner">
+    <div class="section-head center">
+      <span class="section-label">Bảng giá</span>
+      <h2 class="section-title">Minh bạch, không ẩn phí</h2>
+      <p class="section-sub">Bắt đầu miễn phí, nâng cấp khi bạn cần thêm tính năng.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-tier">Miễn phí</div>
+        <div class="pricing-price">0<span>đ / mãi mãi</span></div>
+        <p class="pricing-desc">Hoàn hảo để bắt đầu và trải nghiệm.</p>
+        <ul class="pricing-features">
+          <li>3 mẫu thiệp cơ bản</li>
+          <li>Chia sẻ qua link</li>
+          <li>Xem trước realtime</li>
+          <li class="disabled">Mẫu Premium</li>
+          <li class="disabled">Nhạc nền</li>
+          <li class="disabled">Thống kê lượt xem</li>
+        </ul>
+        <a href="register.html" class="btn-outline" style="width:100%;text-align:center;display:block">Bắt đầu miễn phí</a>
+      </div>
+      <div class="pricing-card featured">
+        <div class="pricing-popular">Phổ biến nhất</div>
+        <div class="pricing-tier">Premium</div>
+        <div class="pricing-price"><sup>₫</sup>99K<span> / thiệp</span></div>
+        <p class="pricing-desc">Dành cho cặp đôi muốn thiệp thật đặc biệt.</p>
+        <ul class="pricing-features">
+          <li>Tất cả mẫu thiệp Premium</li>
+          <li>Chia sẻ qua link</li>
+          <li>Xem trước realtime</li>
+          <li>Nhạc nền lãng mạn</li>
+          <li>Thống kê lượt xem</li>
+          <li>Hỗ trợ ưu tiên</li>
+        </ul>
+        <a href="register.html" class="btn-primary" style="width:100%;text-align:center;display:block">Chọn Premium</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testimonials-section">
+  <div class="section-inner">
+    <div class="section-head center">
+      <span class="section-label">Đánh giá</span>
+      <h2 class="section-title">Khách hàng nói gì về chúng tôi</h2>
+    </div>
+    <div class="testimonials-grid" id="testimonialsGrid"></div>
+  </div>
+</section>
+
+<!-- SHOWCASE -->
+<section class="section showcase-section">
+  <div class="section-inner">
+    <div class="section-head" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem">
+      <div>
+        <span class="section-label">Thiệp thực tế</span>
+        <h2 class="section-title">Thiệp từ khách hàng</h2>
+      </div>
+      <a href="templates.html" class="btn-ghost">Xem thêm →</a>
+    </div>
+    <div class="showcase-grid" id="showcaseGrid"></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq-section" id="faq">
+  <div class="section-inner">
+    <div class="section-head center">
+      <span class="section-label">Hỏi đáp</span>
+      <h2 class="section-title">Câu hỏi thường gặp</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">YenTV.wedding là gì? <span class="faq-icon">+</span></button>
+        <div class="faq-a">YenTV.wedding là nền tảng tạo thiệp cưới online miễn phí, giúp các cặp đôi dễ dàng tạo và chia sẻ thiệp cưới điện tử đẹp mắt mà không cần kỹ năng thiết kế.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Tôi có phải trả tiền không? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Hoàn toàn miễn phí để tạo và chia sẻ thiệp cơ bản. Các mẫu Premium có thêm tính năng nâng cao như nhạc nền, thống kê với mức phí 99.000đ/thiệp.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Làm thế nào để tùy chỉnh thiệp? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Chọn mẫu thiệp yêu thích, điền thông tin cặp đôi, ngày cưới, địa điểm và tùy chỉnh màu sắc. Thiệp được xem trước realtime ngay khi bạn nhập.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Tôi chia sẻ thiệp như thế nào? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Sau khi tạo xong, bạn nhận được một link duy nhất. Chia sẻ link này qua Zalo, Facebook, Messenger hoặc bất kỳ nền tảng nào bạn muốn.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Thiệp có hoạt động trên điện thoại không? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Có, thiệp cưới YenTV.wedding được tối ưu hoàn toàn cho điện thoại, máy tính bảng và máy tính. Khách mời có thể xem trên bất kỳ thiết bị nào.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Thiệp tồn tại bao lâu? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Thiệp của bạn sẽ tồn tại vĩnh viễn miễn là tài khoản còn hoạt động. Bạn có thể xem lại và chia sẻ bất cứ lúc nào.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2>Sẵn sàng tạo thiệp cưới của bạn?</h2>
+    <p>Hàng nghìn cặp đôi đã tin tưởng YenTV.wedding cho ngày trọng đại của họ. Hãy để chúng tôi giúp bạn kể câu chuyện tình yêu.</p>
+    <div class="cta-actions">
+      <a href="register.html" class="btn-primary btn-white btn-xl">Bắt đầu miễn phí 💌</a>
+      <a href="templates.html" class="btn-outline" style="border-color:rgba(255,255,255,.3);color:#fff">Xem mẫu thiệp</a>
+    </div>
+    <p class="cta-note">✓ Miễn phí · ✓ Không cần thẻ tín dụng · ✓ Chia sẻ ngay lập tức</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">💍 YenTV<span class="logo-domain">.wedding</span></a>
+        <p>Nền tảng tạo thiệp cưới online đẹp nhất Việt Nam. Giúp các cặp đôi kể câu chuyện tình yêu qua từng tấm thiệp.</p>
+        <div class="footer-social">
+          <a href="#" title="Facebook">📘</a>
+          <a href="#" title="Instagram">📸</a>
+          <a href="#" title="TikTok">🎵</a>
+          <a href="#" title="Zalo">💬</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Sản phẩm</h4>
+        <ul>
+          <li><a href="templates.html">Mẫu thiệp</a></li>
+          <li><a href="create.html">Tạo thiệp</a></li>
+          <li><a href="#pricing">Bảng giá</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Hỗ trợ</h4>
+        <ul>
+          <li><a href="#faq">Câu hỏi thường gặp</a></li>
+          <li><a href="#">Liên hệ</a></li>
+          <li><a href="#">Hướng dẫn sử dụng</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Pháp lý</h4>
+        <ul>
+          <li><a href="#">Chính sách bảo mật</a></li>
+          <li><a href="#">Điều khoản dịch vụ</a></li>
+          <li><a href="#">Cookie</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 YenTV.wedding™. All Rights Reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Chính sách bảo mật</a>
+        <a href="#">Điều khoản</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="auth.js"></script>
+<script src="main.js"></script>
+<script>
+  // Navbar scroll effect
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+  });
+</script>
+</body>
+</html>
