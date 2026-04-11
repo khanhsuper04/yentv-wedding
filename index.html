@@ -1,359 +1,921 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>YenTV – Thiệp cưới online đẹp, miễn phí</title>
-  <meta name="description" content="Tạo thiệp cưới online đẹp, miễn phí. Hàng chục mẫu thiệp tinh tế, chia sẻ qua Zalo, Facebook chỉ trong vài phút." />
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Yen & Tịnh Vân – Wedding Invitation</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet"/>
+<style>
+@font-face {
+  font-family: 'Sloop';
+  src: url('assets/fonts/Sloop-ScriptThree.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Garamond';
+  src: url('assets/fonts/GaramondPremrPro.otf') format('opentype');
+}
+@font-face {
+  font-family: 'GaramondMed';
+  src: url('assets/fonts/GaramondPremrPro-Med.otf') format('opentype');
+}
+@font-face {
+  font-family: 'GaramondSmbd';
+  src: url('assets/fonts/GaramondPremrPro-Smbd.otf') format('opentype');
+}
+@font-face {
+  font-family: 'BritishGreen';
+  src: url('assets/fonts/1FTV-VIP-British-Green.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'MiracleHistory';
+  src: url('assets/fonts/1FTV-VIP-Miracle-History.otf') format('opentype');
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --gold: #9a7b4f;
+  --gold-light: #b8965e;
+  --green: #4a5c3f;
+  --green-dark: #2d3d25;
+  --beige: #f5f2ec;
+  --beige-input: #e8e4da;
+  --text: #3a3a3a;
+  --white: #ffffff;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--white);
+  font-family: 'Garamond', Georgia, serif;
+  color: var(--text);
+  overflow-x: hidden;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* ===== SECTION 1: HERO ===== */
+.hero {
+  width: 100%;
+  background: var(--white);
+  text-align: center;
+  position: relative;
+}
+
+.hero-cloud-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.hero-cloud-wrap img {
+  width: 100%;
+  display: block;
+}
+
+.hero-top {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  z-index: 2;
+}
+
+.hero-illustration {
+  width: 100%;
+  display: block;
+}
+
+.hero-illustration img {
+  width: 100%;
+  display: block;
+}
+
+.cloud-tl, .cloud-tr, .cloud-bl, .cloud-br {
+  position: absolute;
+  width: 220px;
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 1;
+}
+.cloud-tl { top: 0; left: 0; }
+.cloud-tr { top: 0; right: 0; }
+.cloud-bl { bottom: 60px; left: 0; }
+.cloud-br { bottom: 60px; right: 0; }
+
+.hero-eyebrow {
+  font-family: 'GaramondSmbd', Georgia, serif;
+  font-size: 0.65rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.hero-names {
+  font-family: 'Sloop', 'Great Vibes', cursive;
+  font-size: clamp(3.5rem, 12vw, 5.5rem);
+  font-weight: 400;
+  color: var(--gold);
+  line-height: 1.1;
+  margin-bottom: 1.2rem;
+}
+
+.hero-date {
+  font-family: 'GaramondSmbd', Georgia, serif;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--green);
+  line-height: 2;
+}
+
+.hero-divider {
+  width: 60%;
+  height: 1px;
+  background: var(--green);
+  margin: 1.5rem auto 0;
+  opacity: 0.4;
+}
+
+.hero-illustration {
+  width: 100%;
+  display: block;
+  margin-top: 0;
+}
+
+.hero-illustration img {
+  width: 100%;
+  display: block;
+}
+
+/* ===== SECTION 2: COUNTDOWN ===== */
+.countdown {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: var(--white);
+}
+
+.section-title-script {
+  font-family: 'Sloop', 'Great Vibes', cursive;
+  font-size: clamp(2.5rem, 8vw, 3.5rem);
+  font-weight: 400;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+
+.countdown-desc {
+  font-family: 'Garamond', Georgia, serif;
+  font-size: 0.88rem;
+  color: var(--green);
+  line-height: 1.8;
+  max-width: 480px;
+  margin: 0 auto 2.5rem;
+  font-style: italic;
+}
+
+.countdown-wrap {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.cd-box { text-align: center; }
+
+.cd-num {
+  font-family: 'GaramondSmbd', Georgia, serif;
+  font-size: clamp(2.8rem, 8vw, 4rem);
+  color: var(--green-dark);
+  line-height: 1;
+  display: block;
+}
+
+.cd-label {
+  font-family: 'GaramondSmbd', Georgia, serif;
+  font-size: 0.6rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-top: 0.4rem;
+  display: block;
+}
+
+/* ===== SECTION 3: ORDER OF THE DAY ===== */
+.order {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: var(--white);
+  position: relative;
+}
+
+.order-subtitle {
+  font-family: 'GaramondSmbd', Georgia, serif;
+  font-size: 0.6rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 3rem;
+}
+
+.order-flower-left {
+  position: absolute;
+  left: -40px;
+  top: 80px;
+  width: 200px;
+  opacity: 0.85;
+  transform: scaleX(-1) rotate(35deg);
+}
+
+.order-flower-right {
+  position: absolute;
+  right: -40px;
+  top: 55%;
+  width: 180px;
+  opacity: 0.85;
+  transform: scaleX(-1) rotate(-20deg);
+}
+
+.timeline {
+  position: relative;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 0;
+  text-align: center;
+}
+
+.timeline-connector {
+  width: 1px;
+  height: 60px;
+  background: var(--green);
+  opacity: 0.35;
+  margin: 1rem auto;
+}
+
+.timeline-time {
+  font-family: 'GaramondSmbd', Georgia, serif;
+  font-size: 0.72rem;
+  letter-spacing: 3px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+.timeline-event {
+  font-family: 'GaramondSmbd', Georgia, serif;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--green-dark);
+  margin-bottom: 0.3rem;
+}
+
+.timeline-desc {
+  font-family: 'Garamond', Georgia, serif;
+  font-size: 0.78rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--green);
+  font-style: italic;
+}
+
+/* ===== SECTION 4: DRESSCODE ===== */
+.dresscode {
+  padding: 0 2rem 4rem;
+  text-align: center;
+  background: var(--white);
+}
+
+.dresscode-boat {
+  width: 100%;
+  max-width: 500px;
+  display: block;
+  margin: 0 auto 3rem;
+  opacity: 0.85;
+}
+
+.dresscode-colors {
+  font-family: 'GaramondSmbd', Georgia, serif;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 2rem;
+}
+
+.dresscode-people {
+  width: 100%;
+  display: block;
+  margin: 0 auto 1.5rem;
+  opacity: 0.85;
+}
+
+.dresscode-formal {
+  font-family: 'GaramondSmbd', Georgia, serif;
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--green-dark);
+  margin-bottom: 0.5rem;
+}
+
+.dresscode-note {
+  font-family: 'Garamond', Georgia, serif;
+  font-size: 0.82rem;
+  color: var(--green);
+  font-style: italic;
+  line-height: 1.7;
+}
+
+/* ===== SECTION 5: GIFT ===== */
+.gift {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: var(--white);
+}
+
+.gift-text {
+  font-family: 'GaramondSmbd', Georgia, serif;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  color: var(--green-dark);
+  line-height: 1.9;
+  max-width: 460px;
+  margin: 0 auto 2rem;
+  text-transform: uppercase;
+}
+
+.gift-flower {
+  width: 100%;
+  display: block;
+  margin: 0 auto 3rem;
+  opacity: 0.85;
+}
+
+/* ===== SECTION 5b: TRAVEL & ACCOMMODATION ===== */
+.travel {
+  padding: 0 2rem 4rem;
+  text-align: center;
+  background: var(--white);
+}
+
+.travel-subtitle {
+  font-family: 'GaramondSmbd', Georgia, serif;
+  font-size: 0.6rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 2.5rem;
+}
+
+.travel-block {
+  margin-bottom: 2rem;
+}
+
+.travel-heading {
+  font-family: 'GaramondSmbd', Georgia, serif;
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--green-dark);
+  margin-bottom: 0.6rem;
+}
+
+.travel-body {
+  font-family: 'Garamond', Georgia, serif;
+  font-size: 0.85rem;
+  color: var(--green);
+  line-height: 1.8;
+  font-style: italic;
+}
+
+.travel-body a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+/* ===== SECTION 6: WEATHER / TRAVEL INFO ===== */
+.travel-info {
+  padding: 0 2rem 4rem;
+  text-align: center;
+  background: var(--white);
+}
+
+.weather-img {
+  width: 100%;
+  display: block;
+  margin: 1.5rem auto;
+  opacity: 0.85;
+}
+
+/* ===== SECTION 7: HOTELS ===== */
+.hotels {
+  padding: 0 2rem 4rem;
+  text-align: center;
+  background: var(--white);
+}
+
+.hotels-grid {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.hotel-item { text-align: center; flex: 1; min-width: 120px; max-width: 160px; }
+
+.hotel-item img {
+  width: 100%;
+  opacity: 0.85;
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.hotel-name {
+  font-family: 'GaramondSmbd', Georgia, serif;
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--green-dark);
+  line-height: 1.5;
+}
+
+/* ===== CITY GUIDE ===== */
+.city-guide {
+  padding: 0 2rem 4rem;
+  background: var(--white);
+}
+
+.city-guide-title {
+  font-family: 'GaramondSmbd', Georgia, serif;
+  font-size: 0.9rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--green-dark);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.guide-list {
+  list-style: none;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.guide-list li {
+  font-family: 'Garamond', Georgia, serif;
+  font-size: 0.85rem;
+  color: var(--green);
+  line-height: 1.8;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(74,92,63,0.1);
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.guide-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+
+.guide-list li strong {
+  font-family: 'GaramondSmbd', Georgia, serif;
+  color: var(--green-dark);
+  font-style: italic;
+}
+
+/* ===== SECTION 8: RSVP ===== */
+.rsvp {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: var(--white);
+}
+
+.rsvp-subtitle {
+  font-family: 'GaramondSmbd', Georgia, serif;
+  font-size: 0.6rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 2.5rem;
+}
+
+.rsvp-form {
+  max-width: 520px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.form-group { margin-bottom: 1.4rem; }
+
+.form-label {
+  display: block;
+  font-family: 'Garamond', Georgia, serif;
+  font-size: 0.82rem;
+  color: var(--green-dark);
+  margin-bottom: 0.4rem;
+  font-style: italic;
+}
+
+.form-input, .form-textarea {
+  width: 100%;
+  background: var(--beige-input);
+  border: none;
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  font-family: 'Garamond', Georgia, serif;
+  font-size: 0.85rem;
+  color: var(--text);
+  outline: none;
+}
+
+.form-input::placeholder, .form-textarea::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+.radio-group {
+  display: flex;
+  gap: 2rem;
+  margin-top: 0.4rem;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Garamond', Georgia, serif;
+  font-size: 0.85rem;
+  color: var(--green-dark);
+  font-style: italic;
+  cursor: pointer;
+}
+
+.radio-label input[type="radio"] {
+  accent-color: var(--gold);
+  width: 16px;
+  height: 16px;
+}
+
+.btn-rsvp {
+  width: 100%;
+  background: var(--green-dark);
+  color: var(--white);
+  border: none;
+  padding: 1rem;
+  font-family: 'GaramondSmbd', Georgia, serif;
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 1rem;
+  border-radius: 2px;
+  transition: background 0.2s;
+}
+
+.btn-rsvp:hover { background: var(--green); }
+
+/* ===== SECTION 9: CONTACT ===== */
+.contact {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: var(--white);
+}
+
+.contact-subtitle {
+  font-family: 'GaramondSmbd', Georgia, serif;
+  font-size: 0.6rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 2rem;
+}
+
+.contact-body {
+  font-family: 'Garamond', Georgia, serif;
+  font-size: 0.85rem;
+  color: var(--green);
+  line-height: 2;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+.contact-detail {
+  font-family: 'GaramondSmbd', Georgia, serif;
+  font-size: 0.82rem;
+  color: var(--green-dark);
+  line-height: 2.2;
+  letter-spacing: 0.5px;
+}
+
+.contact-flower {
+  width: 100%;
+  display: block;
+  margin: 2.5rem auto 0;
+  opacity: 0.85;
+}
+
+/* ===== DIVIDER ===== */
+.section-divider {
+  width: 50%;
+  height: 1px;
+  background: var(--green);
+  opacity: 0.2;
+  margin: 0 auto;
+}
+</style>
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar" id="navbar">
-  <a href="index.html" class="logo">
-    <span class="logo-ring">💍</span>YenTV<span class="logo-domain">.wedding</span>
-  </a>
-  <div class="nav-center">
-    <a href="templates.html">Mẫu thiệp</a>
-    <a href="#pricing">Bảng giá</a>
-    <a href="#faq">Hỏi đáp</a>
-  </div>
-  <div class="nav-right">
-    <div id="navGuest">
-      <a href="login.html" class="nav-login">Đăng nhập</a>
-      <a href="register.html" class="btn-primary">Đăng ký miễn phí</a>
-    </div>
-    <div id="navUser" style="display:none">
-      <a href="dashboard.html" class="nav-login">👤 <span id="navUsername"></span></a>
-      <a href="create.html" class="btn-primary">+ Tạo thiệp</a>
-      <button class="btn-logout" onclick="logout()">Đăng xuất</button>
-    </div>
-  </div>
-</nav>
-
-<!-- HERO -->
+<!-- ===== SECTION 1: HERO ===== -->
 <section class="hero">
-  <div class="hero-bg-orb orb1"></div>
-  <div class="hero-bg-orb orb2"></div>
-  <div class="hero-bg-orb orb3"></div>
-  <div class="hero-inner">
-    <div class="hero-content">
-      <div class="hero-badge">
-        <span class="hero-badge-dot"></span>
-        Thiệp cưới online miễn phí
-      </div>
-      <h1>
-        Kể câu chuyện<br/>tình yêu của bạn
-        <span class="hero-script">Make your love story</span>
-      </h1>
-      <p class="hero-desc">
-        YenTV.wedding giúp bạn tạo thiệp cưới điện tử đẹp, cảm xúc chỉ trong vài phút.
-        Không cần kỹ năng thiết kế – chỉ cần tình yêu.
-      </p>
-      <div class="hero-actions">
-        <a href="register.html" class="btn-primary btn-xl">Bắt đầu miễn phí 💌</a>
-        <a href="templates.html" class="btn-ghost">Xem mẫu thiệp →</a>
-      </div>
-      <p class="hero-note">✓ Miễn phí &nbsp;·&nbsp; ✓ Không cần thẻ tín dụng &nbsp;·&nbsp; ✓ Chia sẻ ngay lập tức</p>
-      <div class="hero-stats">
-        <div>
-          <div class="hero-stat-num">10,000+</div>
-          <div class="hero-stat-label">Thiệp đã tạo</div>
-        </div>
-        <div>
-          <div class="hero-stat-num">50+</div>
-          <div class="hero-stat-label">Mẫu thiết kế</div>
-        </div>
-        <div>
-          <div class="hero-stat-num">4.9★</div>
-          <div class="hero-stat-label">Đánh giá</div>
-        </div>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <div class="hero-card-stack">
-        <div class="hero-card-bg card-back"></div>
-        <div class="hero-card-bg card-mid"></div>
-        <div class="hero-card-main">
-          <div class="hc-ornament">✦ ✦ ✦</div>
-          <p class="hc-invite">Trân trọng kính mời</p>
-          <h2 class="hc-names">Minh Anh & Bảo Châu</h2>
-          <div class="hc-divider">— ♥ —</div>
-          <div class="hc-info">
-            📅 Thứ Bảy, 15/06/2025<br/>
-            🕕 18:00 – Tiệc tối<br/>
-            📍 Trung tâm Hội nghị Quốc gia
-          </div>
-          <div class="hc-flowers">🌸 🌺 🌸</div>
-        </div>
+  <div class="hero-cloud-wrap">
+    <img src="assets/anlamretreat/converted_image_2.png" alt="clouds"/>
+    <div class="hero-top">
+      <p class="hero-eyebrow">We Are Getting Married</p>
+      <h1 class="hero-names">Yen &amp; Tịnh Vân</h1>
+      <div class="hero-date">
+        August 08, 2026<br/>
+        An Lam Retreat Saigon River<br/>
+        Venue: Saigon River House
       </div>
     </div>
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section class="section how-section">
-  <div class="section-inner">
-    <div class="section-head center">
-      <span class="section-label">Cách thức hoạt động</span>
-      <h2 class="section-title">Tạo thiệp cưới chỉ trong 3 bước</h2>
-      <p class="section-sub">Đơn giản, nhanh chóng và hoàn toàn miễn phí.</p>
+<img src="assets/anlamretreat/exported_image.png" alt="Saigon River House" style="width:100%;display:block;"/>
+
+<div class="section-divider"></div>
+
+<!-- ===== SECTION 2: COUNTDOWN ===== -->
+<section class="countdown">
+  <h1 class="hero-names" style="margin-bottom:0.5rem">Yen &amp; Tịnh Vân</h1>
+  <h2 class="section-title-script" style="font-size:clamp(1.8rem,6vw,2.5rem)">Countdown</h2>
+  <p class="countdown-desc">
+    Surrounded by lush greenery and river reflections, our wedding will take place in an
+    intimate, secluded setting just beyond the city. A place to slow down, to be present,
+    and to celebrate together.
+  </p>
+  <div class="countdown-wrap">
+    <div class="cd-box"><span class="cd-num" id="cd-days">00</span><span class="cd-label">Days</span></div>
+    <div class="cd-box"><span class="cd-num" id="cd-hours">00</span><span class="cd-label">Hours</span></div>
+    <div class="cd-box"><span class="cd-num" id="cd-mins">00</span><span class="cd-label">Minutes</span></div>
+    <div class="cd-box"><span class="cd-num" id="cd-secs">00</span><span class="cd-label">Seconds</span></div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ===== SECTION 3: ORDER OF THE DAY ===== -->
+<section class="order">
+  <img class="order-flower-left" src="assets/anlamretreat/flower4_low.png" alt=""/>
+  <img class="order-flower-right" src="assets/anlamretreat/flower4_low.png" alt=""/>
+  <h2 class="section-title-script">Order of the Day</h2>
+  <p class="order-subtitle">What We Have Planned For You</p>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-time">15:30</div>
+      <div class="timeline-event">Guess Reception</div>
+      <div class="timeline-desc">Welcoming Our Beloved Guests</div>
     </div>
-    <div class="steps-grid">
-      <div class="step-card">
-        <div class="step-num">1</div>
-        <div class="step-icon">🎨</div>
-        <h3>Chọn mẫu thiệp</h3>
-        <p>Duyệt qua hàng chục mẫu thiệp đẹp từ cổ điển đến hiện đại. Chọn mẫu phù hợp với phong cách của bạn.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">2</div>
-        <div class="step-icon">✏️</div>
-        <h3>Điền thông tin</h3>
-        <p>Nhập tên cặp đôi, ngày cưới, địa điểm và lời nhắn. Xem trước thiệp realtime ngay khi bạn gõ.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">3</div>
-        <div class="step-icon">🚀</div>
-        <h3>Chia sẻ ngay</h3>
-        <p>Nhận link thiệp duy nhất. Gửi qua Zalo, Facebook, Messenger đến tất cả khách mời trong vài giây.</p>
-      </div>
+    <div class="timeline-connector"></div>
+    <div class="timeline-item">
+      <div class="timeline-time">16:00</div>
+      <div class="timeline-event">Vows Ceremony</div>
+      <div class="timeline-desc">A Promise of Forever Begins</div>
+    </div>
+    <div class="timeline-connector"></div>
+    <div class="timeline-item">
+      <div class="timeline-time">16:30</div>
+      <div class="timeline-event">Photo Time &amp; Cocktail Hours</div>
+      <div class="timeline-desc">Capture the Moments &amp; Sip the Joy</div>
+    </div>
+    <div class="timeline-connector"></div>
+    <div class="timeline-item">
+      <div class="timeline-time">18:30</div>
+      <div class="timeline-event">Reception Dinner</div>
+      <div class="timeline-desc">An Evening of Dining &amp; Celebration</div>
+    </div>
+    <div class="timeline-connector"></div>
+    <div class="timeline-item">
+      <div class="timeline-time">20:00</div>
+      <div class="timeline-event">Entertainment</div>
+      <div class="timeline-desc">Let the Celebration Come Alive</div>
+    </div>
+    <div class="timeline-connector"></div>
+    <div class="timeline-item">
+      <div class="timeline-time">21:00</div>
+      <div class="timeline-event">After Party</div>
+      <div class="timeline-desc">Keep the Party Going</div>
     </div>
   </div>
 </section>
 
-<!-- TEMPLATES -->
-<section class="section templates-section">
-  <div class="section-inner">
-    <div class="section-head" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem">
-      <div>
-        <span class="section-label">Mẫu thiết kế</span>
-        <h2 class="section-title">Mẫu thiệp phổ biến nhất</h2>
-      </div>
-      <a href="templates.html" class="btn-ghost">Xem tất cả →</a>
-    </div>
-    <div class="templates-grid" id="templatesGrid"></div>
+<img src="assets/anlamretreat/boat1.png" alt="An Lam Retreat riverside illustration" style="width:100%;display:block;opacity:0.85;"/>
+
+<div class="section-divider"></div>
+
+<!-- ===== SECTION 4: DRESSCODE ===== -->
+<section class="dresscode">
+  <h2 class="section-title-script">Dresscode</h2>
+  <p class="dresscode-colors">Black, White, Champagne and Silver</p>
+  <img class="dresscode-people" src="assets/anlamretreat/converted_image.png" alt="Formal attire illustration"/>
+  <p class="dresscode-formal">Formal Attire</p>
+  <p class="dresscode-note">We kindly ask you to dress formally to join us<br/>on this very special day.</p>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ===== SECTION 5: GIFT ===== -->
+<section class="gift">
+  <h2 class="section-title-script">Gift</h2>
+  <p class="gift-text">
+    Having you with us is the greatest gift.<br/>
+    If you wish, a red envelope for our honeymoon fund<br/>
+    would be warmly received.
+  </p>
+  <img class="gift-flower" src="assets/anlamretreat/flower3.png" alt="Gift envelope with flowers illustration"/>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ===== SECTION 5b: TRAVEL & ACCOMMODATION ===== -->
+<section class="travel">
+  <h2 class="section-title-script">Travel &amp; Accomodation</h2>
+  <p class="travel-subtitle">Your Journey Means the World to Us</p>
+
+  <div class="travel-block">
+    <p class="travel-heading">Visa</p>
+    <p class="travel-body">Please check the visa requirements for your nationality via:<br/>
+      <a href="https://evisa.gov.vn/" target="_blank">https://evisa.gov.vn/</a>
+    </p>
   </div>
 </section>
 
-<!-- FEATURES -->
-<section class="section features-section">
-  <div class="section-inner">
-    <div class="section-head center">
-      <span class="section-label">Tính năng</span>
-      <h2 class="section-title">Mọi thứ bạn cần cho ngày trọng đại</h2>
-      <p class="section-sub">YenTV.wedding được xây dựng để giúp các cặp đôi tạo nên kỷ niệm đáng nhớ.</p>
-    </div>
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon-wrap">✨</div>
-        <h3>Kho mẫu đa dạng & tinh tế</h3>
-        <p>Hàng chục mẫu thiệp được thiết kế chỉn chu, từ truyền thống trang nhã đến hiện đại cinematic.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon-wrap">🎨</div>
-        <h3>Cá nhân hoá không giới hạn</h3>
-        <p>Tuỳ chỉnh màu sắc, phông chữ, nội dung để tạo nên tấm thiệp mang đậm dấu ấn riêng của bạn.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon-wrap">🚀</div>
-        <h3>Chia sẻ siêu nhanh</h3>
-        <p>Gửi thiệp qua Zalo, Facebook, Messenger chỉ trong vài giây. Cá nhân hoá tên từng khách mời.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon-wrap">🎵</div>
-        <h3>Nhạc nền lãng mạn</h3>
-        <p>Thêm nhạc nền để tạo không khí lãng mạn. Chọn từ thư viện hoặc tải lên bản nhạc yêu thích.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon-wrap">💬</div>
-        <h3>Tương tác với khách mời</h3>
-        <p>Khách mời có thể gửi lời chúc và bình luận trực tiếp trên thiệp. Tạo không gian giao lưu ấm áp.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon-wrap">📊</div>
-        <h3>Thống kê chi tiết</h3>
-        <p>Theo dõi lượt xem, lượt yêu thích và hoạt động của khách mời. Biết ai đã xem thiệp của bạn.</p>
-      </div>
-    </div>
+<div class="section-divider"></div>
+
+<!-- ===== SECTION 6: TRAVEL INFO ===== -->
+<section class="travel-info">
+  <div class="travel-block">
+    <p class="travel-heading">Travel</p>
+    <p class="travel-body">
+      Getting around the city is easy with ride-hailing apps such as Grab or Xanh SM (similar to Uber).<br/><br/>
+      To get to An Lâm Retreats:<br/>
+      By car: approximately 25–45 minutes (depending on traffic)<br/>
+      By boat: approximately 25–35 minutes. If you'd like to arrive by speedboat, please let us know in advance.
+    </p>
+  </div>
+
+  <div class="travel-block">
+    <p class="travel-heading">Weather</p>
+    <p class="travel-body">Warm, tropical, with passing rain.</p>
+    <img class="weather-img" src="assets/anlamretreat/weather1.png" alt="Tropical weather illustration"/>
+  </div>
+
+  <div class="travel-block">
+    <p class="travel-heading">Data &amp; Connectivity</p>
+    <p class="travel-body">Local SIM cards are available at the airport. eSIMs are also a convenient option, we recommend purchasing one in advance via Klook.</p>
+  </div>
+
+  <div class="travel-block">
+    <p class="travel-heading">Hotel Recommendation</p>
+    <p class="travel-body">For your convenience, we recommend some hotels in District 1</p>
   </div>
 </section>
 
-<!-- PRICING -->
-<section class="section pricing-section" id="pricing">
-  <div class="section-inner">
-    <div class="section-head center">
-      <span class="section-label">Bảng giá</span>
-      <h2 class="section-title">Minh bạch, không ẩn phí</h2>
-      <p class="section-sub">Bắt đầu miễn phí, nâng cấp khi bạn cần thêm tính năng.</p>
+<!-- ===== SECTION 7: HOTELS & CITY GUIDE ===== -->
+<section class="hotels">
+  <div class="hotels-grid">
+    <div class="hotel-item">
+      <img src="assets/anlamretreat/hotel1_low.png" alt="Lotte Hotel"/>
+      <p class="hotel-name">Lotte Hotel</p>
     </div>
-    <div class="pricing-grid">
-      <div class="pricing-card">
-        <div class="pricing-tier">Miễn phí</div>
-        <div class="pricing-price">0<span>đ / mãi mãi</span></div>
-        <p class="pricing-desc">Hoàn hảo để bắt đầu và trải nghiệm.</p>
-        <ul class="pricing-features">
-          <li>3 mẫu thiệp cơ bản</li>
-          <li>Chia sẻ qua link</li>
-          <li>Xem trước realtime</li>
-          <li class="disabled">Mẫu Premium</li>
-          <li class="disabled">Nhạc nền</li>
-          <li class="disabled">Thống kê lượt xem</li>
-        </ul>
-        <a href="register.html" class="btn-outline" style="width:100%;text-align:center;display:block">Bắt đầu miễn phí</a>
-      </div>
-      <div class="pricing-card featured">
-        <div class="pricing-popular">Phổ biến nhất</div>
-        <div class="pricing-tier">Premium</div>
-        <div class="pricing-price"><sup>₫</sup>99K<span> / thiệp</span></div>
-        <p class="pricing-desc">Dành cho cặp đôi muốn thiệp thật đặc biệt.</p>
-        <ul class="pricing-features">
-          <li>Tất cả mẫu thiệp Premium</li>
-          <li>Chia sẻ qua link</li>
-          <li>Xem trước realtime</li>
-          <li>Nhạc nền lãng mạn</li>
-          <li>Thống kê lượt xem</li>
-          <li>Hỗ trợ ưu tiên</li>
-        </ul>
-        <a href="register.html" class="btn-primary" style="width:100%;text-align:center;display:block">Chọn Premium</a>
-      </div>
+    <div class="hotel-item">
+      <img src="assets/anlamretreat/hotel2_low.png" alt="M Village Hotel Collection"/>
+      <p class="hotel-name">M Village<br/>Hotel Collection</p>
+    </div>
+    <div class="hotel-item">
+      <img src="assets/anlamretreat/hotel3_low.png" alt="Mai House Saigon Hotel"/>
+      <p class="hotel-name">Mai House<br/>Saigon Hotel</p>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="section testimonials-section">
-  <div class="section-inner">
-    <div class="section-head center">
-      <span class="section-label">Đánh giá</span>
-      <h2 class="section-title">Khách hàng nói gì về chúng tôi</h2>
-    </div>
-    <div class="testimonials-grid" id="testimonialsGrid"></div>
-  </div>
+<section class="city-guide">
+  <p class="city-guide-title">Ho Chi Minh City Guide</p>
+  <ul class="guide-list">
+    <li><strong>Places to visit:</strong> The Independence Palace, The War Remnants Museum, Book Street, Water Puppet Show, Ben Thanh Market.</li>
+    <li><strong>Where to shop:</strong> The New Playground, Thảo Điền Ward, Shopping malls (Takashimaya, Vincom Đồng Khởi, Thisky Hall,...).</li>
+    <li><strong>Must-try dishes:</strong> Bánh mì Huỳnh Hoa, Ba Ghiền Broken Rice, Như 6c, Bún bò Huế Đông Ba, Phở Hòa Pasteur, Bụi Garden Restaurant, Đu Đủ Xanh restaurant (vegetarian), Pizza 4P.</li>
+    <li><strong>The coffee culture:</strong> The Running Bean, Katinat, Thái Yên coffee, Cà phê trứng 3T (Egg Coffee 3T), Cộng Coffee, Rang Rang Coffee – Multiple branches across HCMC.</li>
+  </ul>
 </section>
 
-<!-- SHOWCASE -->
-<section class="section showcase-section">
-  <div class="section-inner">
-    <div class="section-head" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem">
-      <div>
-        <span class="section-label">Thiệp thực tế</span>
-        <h2 class="section-title">Thiệp từ khách hàng</h2>
-      </div>
-      <a href="templates.html" class="btn-ghost">Xem thêm →</a>
+<div class="section-divider"></div>
+
+<!-- ===== SECTION 8: RSVP ===== -->
+<section class="rsvp">
+  <h2 class="section-title-script">RSVP</h2>
+  <p class="rsvp-subtitle">We Hope You Can Make It</p>
+  <form class="rsvp-form" onsubmit="submitRSVP(event)">
+    <div class="form-group">
+      <label class="form-label">What is your full name? (required)</label>
+      <input class="form-input" type="text" placeholder="Your full name" required/>
     </div>
-    <div class="showcase-grid" id="showcaseGrid"></div>
-  </div>
+    <div class="form-group">
+      <label class="form-label">How would you like to be addressed on your name tag? (required)</label>
+      <input class="form-input" type="text" placeholder="Your preferred name" required/>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Email (required)</label>
+      <input class="form-input" type="email" placeholder="Your Email" required/>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Contact number (country code, e.g +84) (required)</label>
+      <input class="form-input" type="tel" placeholder="Your number" required/>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Will you be attending? (required)</label>
+      <div class="radio-group">
+        <label class="radio-label"><input type="radio" name="attending" value="accept" checked/> Joyfully Accept</label>
+        <label class="radio-label"><input type="radio" name="attending" value="decline"/> Regretfully Decline</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Will you be bringing a plus one? If yes, please share their name</label>
+      <div class="radio-group" style="margin-bottom:0.6rem">
+        <label class="radio-label"><input type="radio" name="plusone" value="yes" checked/> Yes</label>
+        <label class="radio-label"><input type="radio" name="plusone" value="no"/> No</label>
+      </div>
+      <input class="form-input" type="text" placeholder="Their name"/>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Allergies or dietary requirements</label>
+      <input class="form-input" type="text" placeholder="e.g. gluten-free, lactose intolerant, ..."/>
+    </div>
+    <button class="btn-rsvp" type="submit">Send RSVP</button>
+  </form>
 </section>
 
-<!-- FAQ -->
-<section class="section faq-section" id="faq">
-  <div class="section-inner">
-    <div class="section-head center">
-      <span class="section-label">Hỏi đáp</span>
-      <h2 class="section-title">Câu hỏi thường gặp</h2>
-    </div>
-    <div class="faq-list">
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">YenTV.wedding là gì? <span class="faq-icon">+</span></button>
-        <div class="faq-a">YenTV.wedding là nền tảng tạo thiệp cưới online miễn phí, giúp các cặp đôi dễ dàng tạo và chia sẻ thiệp cưới điện tử đẹp mắt mà không cần kỹ năng thiết kế.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Tôi có phải trả tiền không? <span class="faq-icon">+</span></button>
-        <div class="faq-a">Hoàn toàn miễn phí để tạo và chia sẻ thiệp cơ bản. Các mẫu Premium có thêm tính năng nâng cao như nhạc nền, thống kê với mức phí 99.000đ/thiệp.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Làm thế nào để tùy chỉnh thiệp? <span class="faq-icon">+</span></button>
-        <div class="faq-a">Chọn mẫu thiệp yêu thích, điền thông tin cặp đôi, ngày cưới, địa điểm và tùy chỉnh màu sắc. Thiệp được xem trước realtime ngay khi bạn nhập.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Tôi chia sẻ thiệp như thế nào? <span class="faq-icon">+</span></button>
-        <div class="faq-a">Sau khi tạo xong, bạn nhận được một link duy nhất. Chia sẻ link này qua Zalo, Facebook, Messenger hoặc bất kỳ nền tảng nào bạn muốn.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Thiệp có hoạt động trên điện thoại không? <span class="faq-icon">+</span></button>
-        <div class="faq-a">Có, thiệp cưới YenTV.wedding được tối ưu hoàn toàn cho điện thoại, máy tính bảng và máy tính. Khách mời có thể xem trên bất kỳ thiết bị nào.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Thiệp tồn tại bao lâu? <span class="faq-icon">+</span></button>
-        <div class="faq-a">Thiệp của bạn sẽ tồn tại vĩnh viễn miễn là tài khoản còn hoạt động. Bạn có thể xem lại và chia sẻ bất cứ lúc nào.</div>
-      </div>
-    </div>
-  </div>
+<div class="section-divider"></div>
+
+<!-- ===== SECTION 9: CONTACT ===== -->
+<section class="contact">
+  <h2 class="section-title-script">Contact Us</h2>
+  <p class="contact-subtitle">We Hope You Can Make It</p>
+  <p class="contact-body">Please reach out to our wedding planner team via Whatsapp, Zalo<br/>or email for any question:</p>
+  <p class="contact-detail">
+    Whatsapp/Zalo: +84 976787545<br/>
+    Email: duong.nguyen@theflab.co
+  </p>
+  <br/>
+  <p class="contact-body">Or you can reach to the couple by direct phone number or Whatsapp</p>
+  <p class="contact-detail">
+    Vân – The Bride: +886 921 069 703<br/>
+    Yen – The Groom: +886 907 521 368
+  </p>
+  <img class="contact-flower" src="assets/anlamretreat/flower5.png" alt="Flower illustration"/>
 </section>
 
-<!-- CTA -->
-<section class="cta-section">
-  <div class="cta-inner">
-    <h2>Sẵn sàng tạo thiệp cưới của bạn?</h2>
-    <p>Hàng nghìn cặp đôi đã tin tưởng YenTV.wedding cho ngày trọng đại của họ. Hãy để chúng tôi giúp bạn kể câu chuyện tình yêu.</p>
-    <div class="cta-actions">
-      <a href="register.html" class="btn-primary btn-white btn-xl">Bắt đầu miễn phí 💌</a>
-      <a href="templates.html" class="btn-outline" style="border-color:rgba(255,255,255,.3);color:#fff">Xem mẫu thiệp</a>
-    </div>
-    <p class="cta-note">✓ Miễn phí · ✓ Không cần thẻ tín dụng · ✓ Chia sẻ ngay lập tức</p>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">💍 YenTV<span class="logo-domain">.wedding</span></a>
-        <p>Nền tảng tạo thiệp cưới online đẹp nhất Việt Nam. Giúp các cặp đôi kể câu chuyện tình yêu qua từng tấm thiệp.</p>
-        <div class="footer-social">
-          <a href="#" title="Facebook">📘</a>
-          <a href="#" title="Instagram">📸</a>
-          <a href="#" title="TikTok">🎵</a>
-          <a href="#" title="Zalo">💬</a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Sản phẩm</h4>
-        <ul>
-          <li><a href="templates.html">Mẫu thiệp</a></li>
-          <li><a href="create.html">Tạo thiệp</a></li>
-          <li><a href="#pricing">Bảng giá</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Hỗ trợ</h4>
-        <ul>
-          <li><a href="#faq">Câu hỏi thường gặp</a></li>
-          <li><a href="#">Liên hệ</a></li>
-          <li><a href="#">Hướng dẫn sử dụng</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Pháp lý</h4>
-        <ul>
-          <li><a href="#">Chính sách bảo mật</a></li>
-          <li><a href="#">Điều khoản dịch vụ</a></li>
-          <li><a href="#">Cookie</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2025 YenTV.wedding™. All Rights Reserved.</p>
-      <div class="footer-bottom-links">
-        <a href="#">Chính sách bảo mật</a>
-        <a href="#">Điều khoản</a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script src="data.js"></script>
-<script src="auth.js"></script>
-<script src="main.js"></script>
 <script>
-  // Navbar scroll effect
-  window.addEventListener('scroll', () => {
-    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
-  });
+// Countdown to August 08, 2026
+const weddingDate = new Date('2026-08-08T15:30:00');
+function tick() {
+  const diff = weddingDate - new Date();
+  if (diff <= 0) {
+    document.getElementById('cd-days').textContent = '00';
+    document.getElementById('cd-hours').textContent = '00';
+    document.getElementById('cd-mins').textContent = '00';
+    document.getElementById('cd-secs').textContent = '00';
+    return;
+  }
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
+  document.getElementById('cd-days').textContent = String(d).padStart(2, '0');
+  document.getElementById('cd-hours').textContent = String(h).padStart(2, '0');
+  document.getElementById('cd-mins').textContent = String(m).padStart(2, '0');
+  document.getElementById('cd-secs').textContent = String(s).padStart(2, '0');
+}
+tick();
+setInterval(tick, 1000);
+
+function submitRSVP(e) {
+  e.preventDefault();
+  alert('Thank you! Your RSVP has been received.');
+  e.target.reset();
+}
 </script>
 </body>
 </html>
