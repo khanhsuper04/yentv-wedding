@@ -811,7 +811,31 @@ body {
   opacity: 0.85;
 }
 
-/* ===== DIVIDER ===== */
+/* ===== SCROLL REVEAL ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.15s; }
+.reveal-delay-2 { transition-delay: 0.3s; }
+.reveal-delay-3 { transition-delay: 0.45s; }
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
 .section-divider { display: none; }
 </style>
 </head>
@@ -841,10 +865,10 @@ body {
 <section class="hero">
   <div class="hero-cloud-wrap">
     <img src="assets/anlamretreat/converted_image_2.png" alt="clouds"/>
-    <div class="hero-top">
-      <p class="hero-eyebrow">We Are Getting Married</p>
-      <h1 class="hero-names">Yen &amp; Tịnh Vân</h1>
-      <div class="hero-date">
+    <div class="hero-top reveal">
+      <p class="hero-eyebrow reveal">We Are Getting Married</p>
+      <h1 class="hero-names reveal reveal-delay-1">Yen &amp; Tịnh Vân</h1>
+      <div class="hero-date reveal reveal-delay-2">
         August 08, 2026<br/>
         An Lam Retreat Saigon River<br/>
         Venue: Saigon River House
@@ -859,14 +883,14 @@ body {
 
 <!-- ===== SECTION 2: COUNTDOWN ===== -->
 <section class="countdown">
-  <h1 class="hero-names" style="margin-bottom:0.5rem">Yen &amp; Tịnh Vân</h1>
-  <h2 class="section-title-script" style="font-size:clamp(1.8rem,6vw,2.5rem)">Countdown</h2>
-  <p class="countdown-desc">
+  <h1 class="hero-names reveal" style="margin-bottom:0.5rem">Yen &amp; Tịnh Vân</h1>
+  <h2 class="section-title-script reveal reveal-delay-1" style="font-size:clamp(1.8rem,6vw,2.5rem)">Countdown</h2>
+  <p class="countdown-desc reveal reveal-delay-2">
     Surrounded by lush greenery and river reflections, our wedding will take place in an
     intimate, secluded setting just beyond the city. A place to slow down, to be present,
     and to celebrate together.
   </p>
-  <div class="countdown-wrap">
+  <div class="countdown-wrap reveal reveal-delay-3">
     <div class="cd-box"><span class="cd-num" id="cd-days">00</span><span class="cd-label">Days</span></div>
     <div class="cd-box"><span class="cd-num" id="cd-hours">00</span><span class="cd-label">Hours</span></div>
     <div class="cd-box"><span class="cd-num" id="cd-mins">00</span><span class="cd-label">Minutes</span></div>
@@ -880,9 +904,9 @@ body {
 <section class="order">
   <img class="order-flower-left" src="assets/anlamretreat/flower4_low.png" alt=""/>
   <img class="order-flower-right" src="assets/anlamretreat/flower4_low.png" alt=""/>
-  <h2 class="section-title-script">Order of the Day</h2>
-  <p class="order-subtitle">What We Have Planned For You</p>
-  <div class="timeline">
+  <h2 class="section-title-script reveal">Order of the Day</h2>
+  <p class="order-subtitle reveal reveal-delay-1">What We Have Planned For You</p>
+  <div class="timeline reveal reveal-delay-2">
     <div class="timeline-item">
       <div class="timeline-time">15:30</div>
       <div class="timeline-event">Guess Reception</div>
@@ -927,8 +951,8 @@ body {
 
 <!-- ===== SECTION 4: DRESSCODE ===== -->
 <section class="dresscode">
-  <h2 class="section-title-script">Dresscode</h2>
-  <p class="dresscode-colors">Black, White, Champagne and Silver</p>
+  <h2 class="section-title-script reveal">Dresscode</h2>
+  <p class="dresscode-colors reveal reveal-delay-1">Black, White, Champagne and Silver</p>
   <img class="dresscode-people" src="assets/anlamretreat/converted_image.png" alt="Formal attire illustration"/>
   <p class="dresscode-formal">Formal Attire</p>
   <p class="dresscode-note">We kindly ask you to dress formally to join us<br/>on this very special day.</p>
@@ -938,8 +962,8 @@ body {
 
 <!-- ===== SECTION 5: GIFT ===== -->
 <section class="gift">
-  <h2 class="section-title-script">Gift</h2>
-  <p class="gift-text">
+  <h2 class="section-title-script reveal">Gift</h2>
+  <p class="gift-text reveal reveal-delay-1">
     Having you with us is the greatest gift.<br/>
     If you wish, a red envelope for our honeymoon fund<br/>
     would be warmly received.
@@ -951,8 +975,8 @@ body {
 
 <!-- ===== SECTION 5b: TRAVEL & ACCOMMODATION ===== -->
 <section class="travel">
-  <h2 class="section-title-script">Travel &amp; Accomodation</h2>
-  <p class="travel-subtitle">Your Journey Means the World to Us</p>
+  <h2 class="section-title-script reveal">Travel &amp; Accomodation</h2>
+  <p class="travel-subtitle reveal reveal-delay-1">Your Journey Means the World to Us</p>
 
   <div class="travel-block">
     <p class="travel-heading">Visa</p>
@@ -1025,8 +1049,8 @@ body {
 
 <!-- ===== SECTION 8: RSVP ===== -->
 <section class="rsvp">
-  <h2 class="section-title-script">RSVP</h2>
-  <p class="rsvp-subtitle">We Hope You Can Make It</p>
+  <h2 class="section-title-script reveal">RSVP</h2>
+  <p class="rsvp-subtitle reveal reveal-delay-1">We Hope You Can Make It</p>
   <form class="rsvp-form" onsubmit="submitRSVP(event)">
     <div class="form-group">
       <label class="form-label">What is your full name? (required)</label>
@@ -1080,8 +1104,8 @@ body {
 
 <!-- ===== SECTION 9: CONTACT ===== -->
 <section class="contact">
-  <h2 class="section-title-script">Contact Us</h2>
-  <p class="contact-subtitle">We Hope You Can Make It</p>
+  <h2 class="section-title-script reveal">Contact Us</h2>
+  <p class="contact-subtitle reveal reveal-delay-1">We Hope You Can Make It</p>
   <p class="contact-body">Please reach out to our wedding planner team via Whatsapp, Zalo<br/>or email for any question:</p>
   <p class="contact-detail">
     Whatsapp/Zalo: +84 976787545<br/>
@@ -1097,6 +1121,17 @@ body {
 </section>
 
 <script>
+// ===== SCROLL REVEAL =====
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      revealObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => revealObserver.observe(el));
+
 // ===== CURTAIN =====
 function openCurtain() {
   const intro = document.getElementById('curtain-intro');
