@@ -205,8 +205,9 @@
 /* Open state */
 #curtain-intro.open .curtain-left { transform: translateX(-100%); }
 #curtain-intro.open .curtain-right { transform: translateX(100%); }
-#curtain-intro.open .curtain-swag { opacity: 0; }
-#curtain-intro.open .curtain-center { opacity: 0; transition: opacity 0.5s ease; }
+#curtain-intro.open .curtain-swag { opacity: 0; transition: opacity 0.2s ease; }
+#curtain-intro.open .curtain-center { opacity: 0; transition: opacity 0.2s ease; }
+#curtain-intro.fading { opacity: 0; transition: opacity 0.5s ease; pointer-events: none; }
 #curtain-intro.hidden { display: none; }
 
 /* ===== PETAL CANVAS ===== */
@@ -811,13 +812,7 @@ body {
 }
 
 /* ===== DIVIDER ===== */
-.section-divider {
-  width: 50%;
-  height: 1px;
-  background: var(--green);
-  opacity: 0.2;
-  margin: 0 auto;
-}
+.section-divider { display: none; }
 </style>
 </head>
 <body>
@@ -860,7 +855,7 @@ body {
 
 <img src="assets/anlamretreat/exported_image.png" alt="Saigon River House" style="width:100%;display:block;"/>
 
-<div class="section-divider"></div>
+
 
 <!-- ===== SECTION 2: COUNTDOWN ===== -->
 <section class="countdown">
@@ -879,7 +874,7 @@ body {
   </div>
 </section>
 
-<div class="section-divider"></div>
+
 
 <!-- ===== SECTION 3: ORDER OF THE DAY ===== -->
 <section class="order">
@@ -928,7 +923,7 @@ body {
 
 <img src="assets/anlamretreat/boat1.png" alt="An Lam Retreat riverside illustration" style="width:100%;display:block;opacity:0.85;"/>
 
-<div class="section-divider"></div>
+
 
 <!-- ===== SECTION 4: DRESSCODE ===== -->
 <section class="dresscode">
@@ -939,7 +934,7 @@ body {
   <p class="dresscode-note">We kindly ask you to dress formally to join us<br/>on this very special day.</p>
 </section>
 
-<div class="section-divider"></div>
+
 
 <!-- ===== SECTION 5: GIFT ===== -->
 <section class="gift">
@@ -952,7 +947,7 @@ body {
   <img class="gift-flower" src="assets/anlamretreat/flower3.png" alt="Gift envelope with flowers illustration"/>
 </section>
 
-<div class="section-divider"></div>
+
 
 <!-- ===== SECTION 5b: TRAVEL & ACCOMMODATION ===== -->
 <section class="travel">
@@ -967,7 +962,7 @@ body {
   </div>
 </section>
 
-<div class="section-divider"></div>
+
 
 <!-- ===== SECTION 6: TRAVEL INFO ===== -->
 <section class="travel-info">
@@ -1026,7 +1021,7 @@ body {
   </ul>
 </section>
 
-<div class="section-divider"></div>
+
 
 <!-- ===== SECTION 8: RSVP ===== -->
 <section class="rsvp">
@@ -1081,7 +1076,7 @@ body {
   </div>
 </section>
 
-<div class="section-divider"></div>
+
 
 <!-- ===== SECTION 9: CONTACT ===== -->
 <section class="contact">
@@ -1107,10 +1102,12 @@ function openCurtain() {
   const intro = document.getElementById('curtain-intro');
   if (intro.classList.contains('open')) return;
   intro.classList.add('open');
-  setTimeout(() => intro.classList.add('hidden'), 2600);
+  // Fade out toàn bộ intro sau khi rèm mở gần xong
+  setTimeout(() => intro.classList.add('fading'), 1800);
+  setTimeout(() => intro.classList.add('hidden'), 2300);
 }
 
-// ===== PETAL EFFECT ON CLICK =====
+// ===== CLICK EFFECT: SOFT PETALS =====
 const canvas = document.getElementById('petalCanvas');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
@@ -1120,30 +1117,41 @@ window.addEventListener('resize', () => {
   canvas.height = window.innerHeight;
 });
 
-const petals = [];
+const particles = [];
 
 class Petal {
   constructor(x, y) {
     this.x = x;
     this.y = y;
-    this.size = Math.random() * 6 + 3;
-    this.speedX = (Math.random() - 0.5) * 2.5;
-    this.speedY = Math.random() * -3 - 1;
-    this.gravity = 0.08;
-    this.rot = Math.random() * Math.PI * 2;
-    this.rotSpeed = (Math.random() - 0.5) * 0.05;
-    this.opacity = 0.9;
-    this.fade = Math.random() * 0.012 + 0.008;
+    const angle = (Math.random() * Math.PI) - Math.PI / 2; // mostly upward
+    const speed = Math.random() * 1.5 + 0.5;
+    this.vx = Math.cos(angle) * speed * (Math.random() > 0.5 ? 1 : -1);
+    this.vy = Math.sin(angle) * speed - Math.random() * 1.5;
+    this.gravity = 0.04;
     this.wobble = Math.random() * Math.PI * 2;
-    this.wobbleSpeed = 0.03;
-    const hue = Math.random() > 0.5 ? 35 : 340;
-    this.color = `hsla(${hue},50%,80%,`;
+    this.wobbleSpeed = Math.random() * 0.04 + 0.02;
+    this.rot = Math.random() * Math.PI * 2;
+    this.rotSpeed = (Math.random() - 0.5) * 0.04;
+    this.w = Math.random() * 10 + 6;
+    this.h = this.w * (Math.random() * 0.4 + 0.5);
+    this.opacity = Math.random() * 0.4 + 0.5;
+    this.fade = Math.random() * 0.008 + 0.005;
+    // Soft petal colors: ivory, blush, pink, champagne
+    const colors = [
+      `rgba(245,235,220,`,
+      `rgba(240,200,210,`,
+      `rgba(235,170,185,`,
+      `rgba(250,210,220,`,
+      `rgba(255,192,203,`,
+      `rgba(220,180,190,`,
+    ];
+    this.color = colors[Math.floor(Math.random() * colors.length)];
   }
   update() {
     this.wobble += this.wobbleSpeed;
-    this.x += this.speedX + Math.sin(this.wobble) * 0.4;
-    this.y += this.speedY;
-    this.speedY += this.gravity;
+    this.x += this.vx + Math.sin(this.wobble) * 0.5;
+    this.y += this.vy;
+    this.vy += this.gravity;
     this.rot += this.rotSpeed;
     this.opacity -= this.fade;
   }
@@ -1153,32 +1161,55 @@ class Petal {
     ctx.translate(this.x, this.y);
     ctx.rotate(this.rot);
     ctx.globalAlpha = this.opacity;
+    const s = this.w / 2;
+    // Draw 5-petal flower shape
     ctx.beginPath();
-    ctx.moveTo(0, -this.size);
-    ctx.bezierCurveTo(this.size * 0.7, -this.size * 0.4, this.size * 0.7, this.size * 0.4, 0, this.size);
-    ctx.bezierCurveTo(-this.size * 0.7, this.size * 0.4, -this.size * 0.7, -this.size * 0.4, 0, -this.size);
-    ctx.fillStyle = this.color + this.opacity + ')';
+    for (let i = 0; i < 5; i++) {
+      const a = (i / 5) * Math.PI * 2 - Math.PI / 2;
+      const bx = Math.cos(a) * s;
+      const by = Math.sin(a) * s;
+      const cp1x = Math.cos(a - 0.4) * s * 1.3;
+      const cp1y = Math.sin(a - 0.4) * s * 1.3;
+      const cp2x = Math.cos(a + 0.4) * s * 1.3;
+      const cp2y = Math.sin(a + 0.4) * s * 1.3;
+      if (i === 0) ctx.moveTo(bx, by);
+      const na = ((i + 1) / 5) * Math.PI * 2 - Math.PI / 2;
+      const nx = Math.cos(na) * s;
+      const ny = Math.sin(na) * s;
+      ctx.bezierCurveTo(cp2x, cp2y, Math.cos(na - 0.4) * s * 1.3, Math.sin(na - 0.4) * s * 1.3, nx, ny);
+    }
+    ctx.closePath();
+    const grad = ctx.createRadialGradient(0, 0, 0, 0, 0, s * 1.3);
+    grad.addColorStop(0, `rgba(255,255,255,${this.opacity * 0.9})`);
+    grad.addColorStop(0.4, this.color + (this.opacity * 0.85) + ')');
+    grad.addColorStop(1, this.color + (this.opacity * 0.3) + ')');
+    ctx.fillStyle = grad;
     ctx.fill();
     ctx.restore();
   }
+  get done() { return this.opacity <= 0; }
 }
 
 document.addEventListener('click', (e) => {
-  for (let i = 0; i < 8; i++) {
-    petals.push(new Petal(e.clientX, e.clientY));
+  const count = 10 + Math.floor(Math.random() * 6);
+  for (let i = 0; i < count; i++) {
+    setTimeout(() => particles.push(new Petal(
+      e.clientX + (Math.random() - 0.5) * 20,
+      e.clientY + (Math.random() - 0.5) * 20
+    )), i * 30);
   }
 });
 
-function animatePetals() {
+function animateParticles() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  for (let i = petals.length - 1; i >= 0; i--) {
-    petals[i].update();
-    petals[i].draw();
-    if (petals[i].opacity <= 0) petals.splice(i, 1);
+  for (let i = particles.length - 1; i >= 0; i--) {
+    particles[i].update();
+    particles[i].draw();
+    if (particles[i].done) particles.splice(i, 1);
   }
-  requestAnimationFrame(animatePetals);
+  requestAnimationFrame(animateParticles);
 }
-animatePetals();
+animateParticles();
 const weddingDate = new Date('2026-08-08T15:30:00');
 function tick() {
   const diff = weddingDate - new Date();
