@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 <title>Yen & Tịnh Vân – Wedding Invitation</title>
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet"/>
 <style>
@@ -32,6 +32,165 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ===== CURTAIN INTRO ===== */
+#curtain-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: all;
+}
+
+.curtain-left, .curtain-right {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(135deg, #2d3d25 0%, #4a5c3f 40%, #3a4f30 100%);
+  transition: transform 1.6s cubic-bezier(0.77, 0, 0.18, 1);
+  overflow: hidden;
+}
+
+.curtain-left { left: 0; transform-origin: left; }
+.curtain-right { right: 0; transform-origin: right; }
+
+/* Curtain fabric texture lines */
+.curtain-left::before, .curtain-right::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    180deg,
+    transparent,
+    transparent 40px,
+    rgba(255,255,255,0.03) 40px,
+    rgba(255,255,255,0.03) 41px
+  );
+}
+
+/* Curtain fold effect */
+.curtain-left::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 30px; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0,0,0,0.2));
+}
+.curtain-right::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 30px; height: 100%;
+  background: linear-gradient(90deg, rgba(0,0,0,0.2), transparent);
+}
+
+/* Gold trim at top */
+.curtain-left .curtain-top, .curtain-right .curtain-top {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 12px;
+  background: linear-gradient(90deg, #9a7b4f, #d4af6e, #9a7b4f);
+}
+
+/* Curtain swag decoration */
+.curtain-swag {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+  transition: opacity 0.5s;
+}
+
+.curtain-swag-bar {
+  width: 80px;
+  height: 10px;
+  background: linear-gradient(90deg, #9a7b4f, #d4af6e, #9a7b4f);
+  border-radius: 0 0 4px 4px;
+}
+
+.curtain-swag-tassel {
+  width: 2px;
+  height: 40px;
+  background: linear-gradient(180deg, #d4af6e, #9a7b4f);
+}
+
+.curtain-swag-ball {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #d4af6e, #9a7b4f);
+}
+
+/* Center content on curtain */
+.curtain-center {
+  position: relative;
+  z-index: 1001;
+  text-align: center;
+  color: #f5f0e8;
+  padding: 2rem;
+  pointer-events: none;
+}
+
+.curtain-center-names {
+  font-family: 'Sloop', 'Great Vibes', cursive;
+  font-size: clamp(2.5rem, 10vw, 4.5rem);
+  font-weight: 400;
+  color: #d4af6e;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+
+.curtain-center-date {
+  font-family: 'GaramondSmbd', Georgia, serif;
+  font-size: 0.7rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(245,240,232,0.7);
+  margin-bottom: 2rem;
+}
+
+.curtain-center-hint {
+  font-family: 'Garamond', Georgia, serif;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: rgba(245,240,232,0.5);
+  font-style: italic;
+  animation: hintPulse 2s ease-in-out infinite;
+}
+
+@keyframes hintPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.9; }
+}
+
+.curtain-divider {
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #d4af6e, transparent);
+  margin: 1rem auto;
+}
+
+/* Open state */
+#curtain-intro.open .curtain-left { transform: translateX(-100%); }
+#curtain-intro.open .curtain-right { transform: translateX(100%); }
+#curtain-intro.open .curtain-swag { opacity: 0; }
+#curtain-intro.hidden { display: none; }
+
+/* ===== PETAL CANVAS ===== */
+#petalCanvas {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  pointer-events: none;
+}
 
 :root {
   --gold: #9a7b4f;
@@ -210,6 +369,7 @@ body {
   text-align: center;
   background: var(--white);
   position: relative;
+  overflow: hidden;
 }
 
 .order-subtitle {
@@ -637,6 +797,26 @@ body {
 </head>
 <body>
 
+<!-- ===== CURTAIN INTRO ===== -->
+<div id="curtain-intro" onclick="openCurtain()">
+  <div class="curtain-left"><div class="curtain-top"></div></div>
+  <div class="curtain-right"><div class="curtain-top"></div></div>
+  <div class="curtain-swag">
+    <div class="curtain-swag-bar"></div>
+    <div class="curtain-swag-tassel"></div>
+    <div class="curtain-swag-ball"></div>
+  </div>
+  <div class="curtain-center">
+    <div class="curtain-center-names">Yen &amp; Tịnh Vân</div>
+    <div class="curtain-divider"></div>
+    <div class="curtain-center-date">August 08, 2026</div>
+    <div class="curtain-center-hint">Chạm để mở thiệp</div>
+  </div>
+</div>
+
+<!-- ===== PETAL CANVAS ===== -->
+<canvas id="petalCanvas"></canvas>
+
 <!-- ===== SECTION 1: HERO ===== -->
 <section class="hero">
   <div class="hero-cloud-wrap">
@@ -864,6 +1044,13 @@ body {
       <input class="form-input" type="text" placeholder="e.g. gluten-free, lactose intolerant, ..."/>
     </div>
     <button class="btn-rsvp" type="submit">Send RSVP</button>
+    <div id="rsvp-success" style="display:none;margin-top:1.5rem;text-align:center;">
+      <p style="font-family:'Sloop','Great Vibes',cursive;font-size:2rem;color:var(--gold);font-weight:400;">Thank you</p>
+      <p style="font-family:'Garamond',Georgia,serif;font-size:0.88rem;color:var(--green);font-style:italic;line-height:1.8;margin-top:0.5rem;">
+        We have received your RSVP and are so grateful.<br/>
+        We cannot wait to celebrate with you on August 08, 2026.
+      </p>
+    </div>
   </form>
 </section>
 
@@ -888,7 +1075,79 @@ body {
 </section>
 
 <script>
-// Countdown to August 08, 2026
+// ===== CURTAIN =====
+function openCurtain() {
+  const intro = document.getElementById('curtain-intro');
+  intro.classList.add('open');
+  setTimeout(() => intro.classList.add('hidden'), 1800);
+}
+
+// ===== PETAL EFFECT ON CLICK =====
+const canvas = document.getElementById('petalCanvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+window.addEventListener('resize', () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
+
+const petals = [];
+
+class Petal {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+    this.size = Math.random() * 8 + 4;
+    this.speedX = (Math.random() - 0.5) * 4;
+    this.speedY = Math.random() * -4 - 2;
+    this.gravity = 0.15;
+    this.rot = Math.random() * Math.PI * 2;
+    this.rotSpeed = (Math.random() - 0.5) * 0.1;
+    this.opacity = 1;
+    this.fade = Math.random() * 0.02 + 0.015;
+    const hue = Math.random() > 0.5 ? 35 : 340;
+    this.color = `hsla(${hue},60%,75%,`;
+  }
+  update() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+    this.speedY += this.gravity;
+    this.rot += this.rotSpeed;
+    this.opacity -= this.fade;
+  }
+  draw() {
+    if (this.opacity <= 0) return;
+    ctx.save();
+    ctx.translate(this.x, this.y);
+    ctx.rotate(this.rot);
+    ctx.globalAlpha = this.opacity;
+    ctx.beginPath();
+    ctx.moveTo(0, -this.size);
+    ctx.bezierCurveTo(this.size * 0.8, -this.size * 0.5, this.size * 0.8, this.size * 0.5, 0, this.size);
+    ctx.bezierCurveTo(-this.size * 0.8, this.size * 0.5, -this.size * 0.8, -this.size * 0.5, 0, -this.size);
+    ctx.fillStyle = this.color + this.opacity + ')';
+    ctx.fill();
+    ctx.restore();
+  }
+}
+
+document.addEventListener('click', (e) => {
+  for (let i = 0; i < 12; i++) {
+    petals.push(new Petal(e.clientX, e.clientY));
+  }
+});
+
+function animatePetals() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  for (let i = petals.length - 1; i >= 0; i--) {
+    petals[i].update();
+    petals[i].draw();
+    if (petals[i].opacity <= 0) petals.splice(i, 1);
+  }
+  requestAnimationFrame(animatePetals);
+}
+animatePetals();
 const weddingDate = new Date('2026-08-08T15:30:00');
 function tick() {
   const diff = weddingDate - new Date();
@@ -913,8 +1172,37 @@ setInterval(tick, 1000);
 
 function submitRSVP(e) {
   e.preventDefault();
-  alert('Thank you! Your RSVP has been received.');
-  e.target.reset();
+  const form = e.target;
+  const btn = form.querySelector('.btn-rsvp');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  const data = {
+    fullName: form.querySelector('input[placeholder="Your full name"]').value,
+    preferredName: form.querySelector('input[placeholder="Your preferred name"]').value,
+    email: form.querySelector('input[type="email"]').value,
+    phone: form.querySelector('input[type="tel"]').value,
+    attending: form.querySelector('input[name="attending"]:checked').value,
+    plusOne: form.querySelector('input[name="plusone"]:checked').value,
+    plusOneName: form.querySelector('input[placeholder="Their name"]').value,
+    dietary: form.querySelector('input[placeholder="e.g. gluten-free, lactose intolerant, ..."]').value
+  };
+
+  fetch('https://script.google.com/macros/s/AKfycbw6zG7_nPrTi2Ur5m7VM6rUAkmfJzHh-z_jsfV3PAafgjlxYmLwEBcEbZSgUzmW7Znn/exec', {
+    method: 'POST',
+    mode: 'no-cors',
+    body: new URLSearchParams(data)
+  }).then(() => {
+    btn.textContent = 'Send RSVP';
+    btn.disabled = false;
+    form.reset();
+    document.getElementById('rsvp-success').style.display = 'block';
+    form.style.display = 'none';
+  }).catch(() => {
+    btn.textContent = 'Send RSVP';
+    btn.disabled = false;
+    alert('Something went wrong. Please try again.');
+  });
 }
 </script>
 </body>
