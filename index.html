@@ -42,60 +42,82 @@
   align-items: center;
   justify-content: center;
   pointer-events: all;
+  cursor: pointer;
 }
 
 .curtain-left, .curtain-right {
   position: absolute;
   top: 0;
-  width: 50%;
+  width: 51%;
   height: 100%;
-  background: linear-gradient(135deg, #2d3d25 0%, #4a5c3f 40%, #3a4f30 100%);
-  transition: transform 1.6s cubic-bezier(0.77, 0, 0.18, 1);
+  transition: transform 2.4s cubic-bezier(0.45, 0, 0.1, 1);
   overflow: hidden;
 }
 
-.curtain-left { left: 0; transform-origin: left; }
-.curtain-right { right: 0; transform-origin: right; }
+.curtain-left {
+  left: 0;
+  transform-origin: left;
+  background: linear-gradient(105deg,
+    #f0ebe0 0%, #e8e0d0 20%, #f5f0e8 40%,
+    #ede5d5 60%, #f0ebe0 80%, #e5ddd0 100%);
+}
 
-/* Curtain fabric texture lines */
-.curtain-left::before, .curtain-right::before {
+.curtain-right {
+  right: 0;
+  transform-origin: right;
+  background: linear-gradient(75deg,
+    #e5ddd0 0%, #f0ebe0 20%, #ede5d5 40%,
+    #f5f0e8 60%, #e8e0d0 80%, #f0ebe0 100%);
+}
+
+/* Silk fold lines */
+.curtain-left::before {
   content: '';
   position: absolute;
   inset: 0;
   background: repeating-linear-gradient(
     180deg,
-    transparent,
-    transparent 40px,
-    rgba(255,255,255,0.03) 40px,
-    rgba(255,255,255,0.03) 41px
+    transparent 0px, transparent 60px,
+    rgba(180,160,130,0.08) 60px, rgba(180,160,130,0.08) 62px
+  );
+}
+.curtain-right::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    180deg,
+    transparent 0px, transparent 60px,
+    rgba(180,160,130,0.08) 60px, rgba(180,160,130,0.08) 62px
   );
 }
 
-/* Curtain fold effect */
+/* Shadow at center seam */
 .curtain-left::after {
   content: '';
   position: absolute;
   top: 0; right: 0;
-  width: 30px; height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(0,0,0,0.2));
+  width: 60px; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(150,130,100,0.15));
 }
 .curtain-right::after {
   content: '';
   position: absolute;
   top: 0; left: 0;
-  width: 30px; height: 100%;
-  background: linear-gradient(90deg, rgba(0,0,0,0.2), transparent);
+  width: 60px; height: 100%;
+  background: linear-gradient(90deg, rgba(150,130,100,0.15), transparent);
 }
 
-/* Gold trim at top */
-.curtain-left .curtain-top, .curtain-right .curtain-top {
+/* Gold top bar */
+.curtain-top {
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 12px;
-  background: linear-gradient(90deg, #9a7b4f, #d4af6e, #9a7b4f);
+  height: 8px;
+  background: linear-gradient(90deg, #c9a96e, #e8d5a3, #b8965e, #e8d5a3, #c9a96e);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
-/* Curtain swag decoration */
+/* Swag */
 .curtain-swag {
   position: absolute;
   top: 0;
@@ -106,82 +128,85 @@
   flex-direction: column;
   align-items: center;
   pointer-events: none;
-  transition: opacity 0.5s;
+  transition: opacity 0.8s ease;
 }
-
 .curtain-swag-bar {
-  width: 80px;
-  height: 10px;
-  background: linear-gradient(90deg, #9a7b4f, #d4af6e, #9a7b4f);
+  width: 60px; height: 8px;
+  background: linear-gradient(90deg, #c9a96e, #e8d5a3, #c9a96e);
   border-radius: 0 0 4px 4px;
 }
-
 .curtain-swag-tassel {
-  width: 2px;
-  height: 40px;
-  background: linear-gradient(180deg, #d4af6e, #9a7b4f);
+  width: 1.5px; height: 35px;
+  background: linear-gradient(180deg, #e8d5a3, #c9a96e);
 }
-
 .curtain-swag-ball {
-  width: 10px;
-  height: 10px;
+  width: 8px; height: 8px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #d4af6e, #9a7b4f);
+  background: radial-gradient(circle at 35% 35%, #e8d5a3, #9a7b4f);
 }
 
-/* Center content on curtain */
+/* Center content */
 .curtain-center {
   position: relative;
   z-index: 1001;
   text-align: center;
-  color: #f5f0e8;
   padding: 2rem;
   pointer-events: none;
+  animation: fadeInUp 1.2s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .curtain-center-names {
   font-family: 'Sloop', 'Great Vibes', cursive;
-  font-size: clamp(2.5rem, 10vw, 4.5rem);
+  font-size: clamp(2.8rem, 10vw, 5rem);
   font-weight: 400;
-  color: #d4af6e;
-  margin-bottom: 1rem;
-  text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  color: var(--gold);
+  margin-bottom: 0.5rem;
 }
 
 .curtain-center-date {
   font-family: 'GaramondSmbd', Georgia, serif;
-  font-size: 0.7rem;
-  letter-spacing: 4px;
+  font-size: 0.65rem;
+  letter-spacing: 5px;
   text-transform: uppercase;
-  color: rgba(245,240,232,0.7);
-  margin-bottom: 2rem;
+  color: var(--green);
+  margin-bottom: 1.5rem;
+}
+
+.curtain-divider {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0.8rem auto;
 }
 
 .curtain-center-hint {
   font-family: 'Garamond', Georgia, serif;
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   letter-spacing: 2px;
-  color: rgba(245,240,232,0.5);
+  color: var(--green);
   font-style: italic;
-  animation: hintPulse 2s ease-in-out infinite;
+  animation: hintPulse 2.5s ease-in-out infinite;
+  opacity: 0;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
 }
 
 @keyframes hintPulse {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.9; }
-}
-
-.curtain-divider {
-  width: 80px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #d4af6e, transparent);
-  margin: 1rem auto;
+  0% { opacity: 0; }
+  30%, 70% { opacity: 0.7; }
+  100% { opacity: 0; }
 }
 
 /* Open state */
 #curtain-intro.open .curtain-left { transform: translateX(-100%); }
 #curtain-intro.open .curtain-right { transform: translateX(100%); }
 #curtain-intro.open .curtain-swag { opacity: 0; }
+#curtain-intro.open .curtain-center { opacity: 0; transition: opacity 0.5s ease; }
 #curtain-intro.hidden { display: none; }
 
 /* ===== PETAL CANVAS ===== */
@@ -1044,14 +1069,16 @@ body {
       <input class="form-input" type="text" placeholder="e.g. gluten-free, lactose intolerant, ..."/>
     </div>
     <button class="btn-rsvp" type="submit">Send RSVP</button>
-    <div id="rsvp-success" style="display:none;margin-top:1.5rem;text-align:center;">
-      <p style="font-family:'Sloop','Great Vibes',cursive;font-size:2rem;color:var(--gold);font-weight:400;">Thank you</p>
-      <p style="font-family:'Garamond',Georgia,serif;font-size:0.88rem;color:var(--green);font-style:italic;line-height:1.8;margin-top:0.5rem;">
-        We have received your RSVP and are so grateful.<br/>
-        We cannot wait to celebrate with you on August 08, 2026.
-      </p>
-    </div>
   </form>
+  <div id="rsvp-success" style="display:none;margin-top:1.5rem;text-align:center;padding:3rem 1rem;">
+      <div style="font-family:'Sloop','Great Vibes',cursive;font-size:2.5rem;color:var(--gold);font-weight:400;margin-bottom:0.5rem;">Thank you</div>
+      <div style="width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0.8rem auto 1.2rem;"></div>
+      <p style="font-family:'Garamond',Georgia,serif;font-size:0.92rem;color:var(--green);font-style:italic;line-height:2;">
+        We have received your RSVP<br/>and are so grateful.<br/><br/>
+        We cannot wait to celebrate with you<br/>on <span style="font-family:'GaramondSmbd',Georgia,serif;color:var(--green-dark);">August 08, 2026</span>.
+      </p>
+      <div style="width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:1.2rem auto 0;"></div>
+  </div>
 </section>
 
 <div class="section-divider"></div>
@@ -1078,8 +1105,9 @@ body {
 // ===== CURTAIN =====
 function openCurtain() {
   const intro = document.getElementById('curtain-intro');
+  if (intro.classList.contains('open')) return;
   intro.classList.add('open');
-  setTimeout(() => intro.classList.add('hidden'), 1800);
+  setTimeout(() => intro.classList.add('hidden'), 2600);
 }
 
 // ===== PETAL EFFECT ON CLICK =====
@@ -1098,19 +1126,22 @@ class Petal {
   constructor(x, y) {
     this.x = x;
     this.y = y;
-    this.size = Math.random() * 8 + 4;
-    this.speedX = (Math.random() - 0.5) * 4;
-    this.speedY = Math.random() * -4 - 2;
-    this.gravity = 0.15;
+    this.size = Math.random() * 6 + 3;
+    this.speedX = (Math.random() - 0.5) * 2.5;
+    this.speedY = Math.random() * -3 - 1;
+    this.gravity = 0.08;
     this.rot = Math.random() * Math.PI * 2;
-    this.rotSpeed = (Math.random() - 0.5) * 0.1;
-    this.opacity = 1;
-    this.fade = Math.random() * 0.02 + 0.015;
+    this.rotSpeed = (Math.random() - 0.5) * 0.05;
+    this.opacity = 0.9;
+    this.fade = Math.random() * 0.012 + 0.008;
+    this.wobble = Math.random() * Math.PI * 2;
+    this.wobbleSpeed = 0.03;
     const hue = Math.random() > 0.5 ? 35 : 340;
-    this.color = `hsla(${hue},60%,75%,`;
+    this.color = `hsla(${hue},50%,80%,`;
   }
   update() {
-    this.x += this.speedX;
+    this.wobble += this.wobbleSpeed;
+    this.x += this.speedX + Math.sin(this.wobble) * 0.4;
     this.y += this.speedY;
     this.speedY += this.gravity;
     this.rot += this.rotSpeed;
@@ -1124,8 +1155,8 @@ class Petal {
     ctx.globalAlpha = this.opacity;
     ctx.beginPath();
     ctx.moveTo(0, -this.size);
-    ctx.bezierCurveTo(this.size * 0.8, -this.size * 0.5, this.size * 0.8, this.size * 0.5, 0, this.size);
-    ctx.bezierCurveTo(-this.size * 0.8, this.size * 0.5, -this.size * 0.8, -this.size * 0.5, 0, -this.size);
+    ctx.bezierCurveTo(this.size * 0.7, -this.size * 0.4, this.size * 0.7, this.size * 0.4, 0, this.size);
+    ctx.bezierCurveTo(-this.size * 0.7, this.size * 0.4, -this.size * 0.7, -this.size * 0.4, 0, -this.size);
     ctx.fillStyle = this.color + this.opacity + ')';
     ctx.fill();
     ctx.restore();
@@ -1133,7 +1164,7 @@ class Petal {
 }
 
 document.addEventListener('click', (e) => {
-  for (let i = 0; i < 12; i++) {
+  for (let i = 0; i < 8; i++) {
     petals.push(new Petal(e.clientX, e.clientY));
   }
 });
@@ -1192,17 +1223,23 @@ function submitRSVP(e) {
     method: 'POST',
     mode: 'no-cors',
     body: new URLSearchParams(data)
-  }).then(() => {
-    btn.textContent = 'Send RSVP';
-    btn.disabled = false;
-    form.reset();
-    document.getElementById('rsvp-success').style.display = 'block';
-    form.style.display = 'none';
-  }).catch(() => {
-    btn.textContent = 'Send RSVP';
-    btn.disabled = false;
-    alert('Something went wrong. Please try again.');
   });
+
+  // Show success after short delay regardless of response
+  setTimeout(() => {
+    btn.textContent = 'Send RSVP';
+    btn.disabled = false;
+    form.style.transition = 'opacity 0.6s ease';
+    form.style.opacity = '0';
+    setTimeout(() => {
+      form.style.display = 'none';
+      const success = document.getElementById('rsvp-success');
+      success.style.display = 'block';
+      success.style.opacity = '0';
+      success.style.transition = 'opacity 0.8s ease';
+      setTimeout(() => success.style.opacity = '1', 50);
+    }, 600);
+  }, 1000);
 }
 </script>
 </body>
