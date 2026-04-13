@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 <title>Yen & Tịnh Vân – Wedding Invitation</title>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@1,300;1,400;1,500&family=Josefin+Sans:ital,wght@1,300;1,400&display=swap" rel="stylesheet"/>
 <style>
 @font-face {
   font-family: 'Sloop';
@@ -345,9 +345,10 @@ body {
 }
 
 .section-title-script {
-  font-family: 'Sloop', 'Great Vibes', cursive;
+  font-family: 'MiracleHistory', cursive;
   font-size: clamp(2.5rem, 8vw, 3.5rem);
   font-weight: 400;
+  font-style: normal;
   color: var(--gold);
   margin-bottom: 1.5rem;
 }
@@ -447,29 +448,30 @@ body {
 
 .timeline-time {
   font-family: 'GaramondSmbd', Georgia, serif;
-  font-size: 0.72rem;
-  letter-spacing: 3px;
-  color: var(--gold);
-  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  color: var(--green);
+  text-transform: none;
   margin-bottom: 0.3rem;
 }
 
 .timeline-event {
   font-family: 'GaramondSmbd', Georgia, serif;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--green-dark);
+  color: #4D6037;
+  font-weight: 400;
   margin-bottom: 0.3rem;
 }
 
 .timeline-desc {
   font-family: 'Garamond', Georgia, serif;
-  font-size: 0.78rem;
+  font-size: 0.88rem;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--green);
-  font-style: italic;
+  font-style: normal;
 }
 
 /* ===== SECTION 4: DRESSCODE ===== */
@@ -497,7 +499,7 @@ body {
 }
 
 .dresscode-people {
-  width: 100%;
+  width: 60%;
   display: block;
   margin: 0 auto 1.5rem;
   opacity: 0.85;
@@ -611,18 +613,18 @@ body {
 .hotels-grid {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
+  gap: 1rem;
+  flex-wrap: nowrap;
   margin-bottom: 1.5rem;
 }
 
-.hotel-item { text-align: center; flex: 1; min-width: 120px; max-width: 160px; }
+.hotel-item { text-align: center; flex: 1; min-width: 0; max-width: 33%; }
 
 .hotel-item img {
-  width: 100%;
+  width: 80%;
   opacity: 0.85;
   display: block;
-  margin-bottom: 0.6rem;
+  margin: 0 auto 0.6rem;
 }
 
 .hotel-name {
@@ -851,7 +853,7 @@ body {
     <div class="curtain-swag-ball"></div>
   </div>
   <div class="curtain-center">
-    <div class="curtain-center-names">Yen &amp; Tịnh Vân</div>
+    <img src="assets/anlamretreat/yentvv.png" alt="Yen & Tịnh Vân" style="max-width:80%;display:block;margin:0 auto 0.5rem;"/>
     <div class="curtain-divider"></div>
     <div class="curtain-center-date">August 08, 2026</div>
     <div class="curtain-center-hint">Chạm để mở thiệp</div>
@@ -867,7 +869,7 @@ body {
     <img src="assets/anlamretreat/converted_image_2.png" alt="clouds"/>
     <div class="hero-top reveal">
       <p class="hero-eyebrow reveal">We Are Getting Married</p>
-      <h1 class="hero-names reveal reveal-delay-1">Yen &amp; Tịnh Vân</h1>
+      <img src="assets/anlamretreat/yentvv.png" alt="Yen & Tịnh Vân" class="reveal reveal-delay-1" style="max-width:85%;display:block;margin:0 auto 1.2rem;"/>
       <div class="hero-date reveal reveal-delay-2">
         August 08, 2026<br/>
         An Lam Retreat Saigon River<br/>
@@ -883,7 +885,7 @@ body {
 
 <!-- ===== SECTION 2: COUNTDOWN ===== -->
 <section class="countdown">
-  <h1 class="hero-names reveal" style="margin-bottom:0.5rem">Yen &amp; Tịnh Vân</h1>
+  <img src="assets/anlamretreat/yentvv.png" alt="Yen & Tịnh Vân" class="reveal" style="max-width:80%;display:block;margin:0 auto 0.5rem;"/>
   <h2 class="section-title-script reveal reveal-delay-1" style="font-size:clamp(1.8rem,6vw,2.5rem)">Countdown</h2>
   <p class="countdown-desc reveal reveal-delay-2">
     Surrounded by lush greenery and river reflections, our wedding will take place in an
@@ -1310,3 +1312,4 @@ function submitRSVP(e) {
 </script>
 </body>
 </html>
+
