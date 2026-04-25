@@ -221,11 +221,11 @@
 :root {
   --gold: #9a7b4f;
   --gold-light: #b8965e;
-  --green: #4a5c3f;
-  --green-dark: #2d3d25;
+  --green: #9a7b4f;
+  --green-dark: #9a7b4f;
   --beige: #f5f2ec;
   --beige-input: #e8e4da;
-  --text: #3a3a3a;
+  --text: #9a7b4f;
   --white: #ffffff;
 }
 
@@ -596,6 +596,12 @@ body {
   font-style: italic;
 }
 
+.travel-body strong {
+  font-family: 'GaramondSmbd', Georgia, serif;
+  font-style: italic;
+  color: var(--green-dark);
+}
+
 .travel-body a {
   color: var(--gold);
   text-decoration: none;
@@ -673,12 +679,15 @@ body {
 .guide-list {
   max-width: 380px;
   margin: 0 auto;
-  text-align: left;
+  text-align: center;
   display: inline-block;
 }
 
 .guide-category {
   margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .guide-cat-title {
@@ -687,13 +696,16 @@ body {
   color: var(--gold);
   font-style: italic;
   margin-bottom: 0.8rem;
-  text-align: left;
+  width: 260px;
+  text-align: center;
 }
 
 .guide-sub-list {
-  list-style: disc;
-  padding-left: 1.2rem;
-  margin-left: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 260px;
+  text-align: left;
 }
 
 .guide-sub-list li {
@@ -701,11 +713,16 @@ body {
   font-size: 0.88rem;
   color: var(--green);
   line-height: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.guide-sub-list li::marker {
+.guide-sub-list li::before {
+  content: '·';
   color: var(--gold);
-  font-size: 0.7rem;
+  font-size: 1rem;
+  flex-shrink: 0;
 }
 
 /* ===== SECTION 8: RSVP ===== */
@@ -996,25 +1013,25 @@ body {
   <h2 class="section-title-script reveal" style="font-size:clamp(1.8rem,7vw,3.5rem)">Travel &amp; Accomodation</h2>
   <p class="travel-subtitle reveal reveal-delay-1">Your Journey Means the World to Us</p>
 
-  <div class="travel-block">
+  <div class="travel-block reveal">
     <p class="travel-heading">Visa</p>
-    <p class="travel-body">Please check the visa requirements for your nationality via:<br/>
+    <p class="travel-body">Please check the visa requirements for your nationality via:<br/><br/>
       <a href="https://evisa.gov.vn/" target="_blank">https://evisa.gov.vn/</a>
     </p>
   </div>
 </section>
 
-
-
 <!-- ===== SECTION 6: TRAVEL INFO ===== -->
 <section class="travel-info">
-  <div class="travel-block">
+  <div class="travel-block reveal">
     <p class="travel-heading">Travel</p>
     <p class="travel-body">
       Getting around the city is easy with ride-hailing apps such as Grab or Xanh SM (similar to Uber).<br/><br/>
-      To get to An Lâm Retreats:<br/>
-      By car: approximately 25–45 minutes (depending on traffic)<br/>
-      By boat: approximately 25–35 minutes. If you'd like to arrive by speedboat, please let us know in advance.
+      To get to An Lâm Retreats:<br/><br/>
+      <strong>By car:</strong><br/>
+      45–55 minutes (depending on traffic)<br/><br/>
+      <strong>By boat:</strong><br/>
+      25–35 minutes. If you'd like to arrive by speedboat, please let us know in advance.
     </p>
   </div>
 
