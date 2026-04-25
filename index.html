@@ -659,39 +659,53 @@ body {
   font-size: 0.9rem;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: var(--green-dark);
+  color: var(--gold);
   text-align: center;
   margin-bottom: 2rem;
 }
 
+.city-guide {
+  padding: 0 2rem 4rem;
+  background: var(--white);
+  text-align: center;
+}
+
 .guide-list {
-  list-style: none;
-  max-width: 520px;
+  max-width: 380px;
   margin: 0 auto;
+  text-align: left;
+  display: inline-block;
 }
 
-.guide-list li {
-  font-family: 'Garamond', Georgia, serif;
-  font-size: 0.85rem;
-  color: var(--green);
-  line-height: 1.8;
-  padding: 1rem 0;
-  border-bottom: 1px solid rgba(74,92,63,0.1);
-  padding-left: 1.2rem;
-  position: relative;
+.guide-category {
+  margin-bottom: 2.5rem;
 }
 
-.guide-list li::before {
-  content: '•';
-  position: absolute;
-  left: 0;
-  color: var(--gold);
-}
-
-.guide-list li strong {
+.guide-cat-title {
   font-family: 'GaramondSmbd', Georgia, serif;
-  color: var(--green-dark);
+  font-size: 0.92rem;
+  color: var(--gold);
   font-style: italic;
+  margin-bottom: 0.8rem;
+  text-align: left;
+}
+
+.guide-sub-list {
+  list-style: disc;
+  padding-left: 1.2rem;
+  margin-left: 0;
+}
+
+.guide-sub-list li {
+  font-family: 'Garamond', Georgia, serif;
+  font-size: 0.88rem;
+  color: var(--green);
+  line-height: 2;
+}
+
+.guide-sub-list li::marker {
+  color: var(--gold);
+  font-size: 0.7rem;
 }
 
 /* ===== SECTION 8: RSVP ===== */
@@ -855,21 +869,12 @@ body {
 </head>
 <body>
 
-<!-- ===== CURTAIN INTRO ===== -->
-<div id="curtain-intro" onclick="openCurtain()">
-  <div class="curtain-left"><div class="curtain-top"></div></div>
-  <div class="curtain-right"><div class="curtain-top"></div></div>
-  <div class="curtain-swag">
-    <div class="curtain-swag-bar"></div>
-    <div class="curtain-swag-tassel"></div>
-    <div class="curtain-swag-ball"></div>
-  </div>
-  <div class="curtain-center">
-    <img src="assets/anlamretreat/yentv.png" alt="Yen & Tịnh Vân" style="max-width:80%;display:block;margin:0 auto 0.5rem;"/>
-    <div class="curtain-divider"></div>
-    <div class="curtain-center-date">August 08, 2026</div>
-    <div class="curtain-center-hint">Chạm để mở thiệp</div>
-  </div>
+<!-- ===== VIDEO INTRO ===== -->
+<div id="curtain-intro">
+  <video id="intro-video" autoplay muted playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+    <source src="assets/anlamretreat/intro.mp4" type="video/mp4"/>
+  </video>
+  <button onclick="skipIntro()" style="position:absolute;bottom:2rem;right:2rem;background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.5);color:#fff;padding:0.5rem 1.2rem;font-family:'Garamond',serif;font-size:0.85rem;letter-spacing:2px;cursor:pointer;border-radius:2px;backdrop-filter:blur(4px);">Skip</button>
 </div>
 
 <!-- ===== PETAL CANVAS ===== -->
@@ -1050,13 +1055,51 @@ body {
 </section>
 
 <section class="city-guide">
-  <p class="city-guide-title">Ho Chi Minh City Guide</p>
-  <ul class="guide-list">
-    <li><strong>Places to visit:</strong> The Independence Palace, The War Remnants Museum, Book Street, Water Puppet Show, Ben Thanh Market.</li>
-    <li><strong>Where to shop:</strong> The New Playground, Thảo Điền Ward, Shopping malls (Takashimaya, Vincom Đồng Khởi, Thisky Hall,...).</li>
-    <li><strong>Must-try dishes:</strong> Bánh mì Huỳnh Hoa, Ba Ghiền Broken Rice, Như 6c, Bún bò Huế Đông Ba, Phở Hòa Pasteur, Bụi Garden Restaurant, Đu Đủ Xanh restaurant (vegetarian), Pizza 4P.</li>
-    <li><strong>The coffee culture:</strong> The Running Bean, Katinat, Thái Yên coffee, Cà phê trứng 3T (Egg Coffee 3T), Cộng Coffee, Rang Rang Coffee – Multiple branches across HCMC.</li>
-  </ul>
+  <p class="city-guide-title reveal">Ho Chi Minh City Guide</p>
+  <div class="guide-list">
+    <div class="guide-category reveal">
+      <p class="guide-cat-title">Places to visit:</p>
+      <ul class="guide-sub-list">
+        <li>Book Street</li>
+        <li>Ben Thanh Market</li>
+        <li>Water Puppet Show</li>
+        <li>The Independence Palace</li>
+        <li>The War Remnants Museum</li>
+      </ul>
+    </div>
+    <div class="guide-category reveal">
+      <p class="guide-cat-title">Where to shop:</p>
+      <ul class="guide-sub-list">
+        <li>The New Playground</li>
+        <li>Thao Dien Ward</li>
+        <li>Shopping malls (Takashimaya, Vincom, Thisky Hall,...)</li>
+      </ul>
+    </div>
+    <div class="guide-category reveal">
+      <p class="guide-cat-title">Must-try dishes:</p>
+      <ul class="guide-sub-list">
+        <li>Như ốc</li>
+        <li>Pizza 4P</li>
+        <li>Phở Hòa Pasteur</li>
+        <li>Bánh mì Huỳnh Hoa</li>
+        <li>Ba Ghiền Broken Rice</li>
+        <li>Bún bò Huế Đông Ba</li>
+        <li>Bụi Garden Restaurant</li>
+        <li>Đu Đủ Xanh Restaurant (Vegetarian)</li>
+      </ul>
+    </div>
+    <div class="guide-category reveal">
+      <p class="guide-cat-title">The coffee culture:</p>
+      <ul class="guide-sub-list">
+        <li>The Running Bean</li>
+        <li>Katinat</li>
+        <li>Thái Yên Coffee</li>
+        <li>Cà phê trứng 3T (Egg Coffee 3T)</li>
+        <li>Cộng Coffee, Rang Rang Coffee</li>
+        <li>Multiple branches across HCMC</li>
+      </ul>
+    </div>
+  </div>
 </section>
 
 
@@ -1146,14 +1189,17 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.15 });
 document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => revealObserver.observe(el));
 
-// ===== CURTAIN =====
-function openCurtain() {
+// ===== VIDEO INTRO =====
+function skipIntro() {
   const intro = document.getElementById('curtain-intro');
-  if (intro.classList.contains('open')) return;
-  intro.classList.add('open');
-  // Fade out toàn bộ intro sau khi rèm mở gần xong
-  setTimeout(() => intro.classList.add('fading'), 1800);
-  setTimeout(() => intro.classList.add('hidden'), 2300);
+  intro.style.transition = 'opacity 0.8s ease';
+  intro.style.opacity = '0';
+  setTimeout(() => intro.style.display = 'none', 800);
+}
+
+const introVideo = document.getElementById('intro-video');
+if (introVideo) {
+  introVideo.addEventListener('ended', skipIntro);
 }
 
 // ===== CLICK EFFECT: SOFT PETALS =====
